@@ -162,7 +162,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.467255, y: 0.067811206}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -426,6 +426,14 @@ PrefabInstance:
     - target: {fileID: 6742146290513660181, guid: 6c9d2c456c84394438a6769bbc78009f, type: 3}
       propertyPath: m_Name
       value: Box (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936866287008181511, guid: 6c9d2c456c84394438a6769bbc78009f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.045169726
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936866287008181511, guid: 6c9d2c456c84394438a6769bbc78009f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.121628396
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3966,6 +3974,18 @@ PrefabInstance:
       value: PlayerCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 5589759164205104565, guid: 549050b2feac400498cd1e1701d1e152, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589759164205104565, guid: 549050b2feac400498cd1e1701d1e152, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589759164205104565, guid: 549050b2feac400498cd1e1701d1e152, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589759164205104565, guid: 549050b2feac400498cd1e1701d1e152, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
       objectReference: {fileID: 0}
@@ -4081,6 +4101,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1201159271521951282, guid: 3072ce75602960b41a36279d1a79d4d9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201159271521951282, guid: 3072ce75602960b41a36279d1a79d4d9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201159271521951282, guid: 3072ce75602960b41a36279d1a79d4d9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1201159271521951282, guid: 3072ce75602960b41a36279d1a79d4d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.11
