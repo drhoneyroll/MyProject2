@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public float changeTime = 3.0f;
     float timer;
     int direction = 1;
+    public int damage = 1;
     Animator animator;
     
     Vector2 move;
@@ -59,7 +60,7 @@ public class EnemyController : MonoBehaviour
         PlayerController player = other.gameObject.GetComponent<PlayerController>();
         if (player != null)
         {
-            player.ChangeHealth(-1);
+            player.ChangeHealth(damage);
         }
     }
 }
