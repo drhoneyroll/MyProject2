@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     public float changeTime = 3.0f;
     float timer;
     int direction = 1;
-
+    Animator animator;
     
     Vector2 move;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         timer = changeTime;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,15 +37,29 @@ public class EnemyController : MonoBehaviour
         if (vertical)
         {
             position.y = position.y + speed * direction * Time.deltaTime;
+            animator.SetFloat("Move X", 0);
+            animator.SetFloat("Move Y", direction);
 
         }
         else {
             position.x = position.x + speed * direction * Time.deltaTime;
+            
+            animator.SetFloat("Move X", direction);
+            animator.SetFloat("Move Y", 0);
         }
         
         
         //Vector2 position = (Vector2)rigidbody2d.position + move * movement_speed * Time.deltaTime;
         //Vector2 position = (Vector2)rigidbody2d.position + move * 5.0f * Time.deltaTime;
         rigidbody2d.MovePosition(position);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            player.ChangeHealth(-1);
+        }
     }
 }

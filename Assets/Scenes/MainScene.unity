@@ -170,6 +170,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.19739063, y: 0.1565214}
   m_EdgeRadius: 0
+--- !u!95 &241371977
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241371967}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 626bde5c6421f4a418a92bea669a701f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &305389643
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   speed: 2
-  vertical: 0
+  vertical: 1
   changeTime: 3
 --- !u!1 &1661874796
 GameObject:
@@ -3990,6 +4012,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2341836740286800112, guid: 549050b2feac400498cd1e1701d1e152, type: 3}
       insertIndex: -1
       addedObject: {fileID: 241371972}
+    - targetCorrespondingSourceObject: {fileID: 2341836740286800112, guid: 549050b2feac400498cd1e1701d1e152, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 241371977}
   m_SourcePrefab: {fileID: 100100000, guid: 549050b2feac400498cd1e1701d1e152, type: 3}
 --- !u!1001 &6774043095199287657
 PrefabInstance:
@@ -4100,6 +4125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 8757899978772894728, guid: 3072ce75602960b41a36279d1a79d4d9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 456b6a9b23edc0642a21adc3b40bac77, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

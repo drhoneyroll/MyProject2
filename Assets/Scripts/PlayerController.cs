@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     Vector2 move;
     public float movement_speed;
     public InputAction MoveAction;
+    Animator animator;
+    Vector2 moveDirection = new Vector2(1, 0);
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour
         //currentHealth = maxHealth;
         MoveAction.Enable();
         rigidbody2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
 
     }
 
@@ -27,6 +31,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         move = MoveAction.ReadValue<Vector2>();
+        if(!Mathf.Approximately(move.x,0.0f) || !Mathf.Approximately(move.y,0.0f))
+        {
+            moveDirection.Set(move.x, move.y);
+            moveDirection.Normalize();
+        }
+        animator.SetFloat("Look X", moveDirection.x);
+        animator.SetFloat("Look Y", moveDirection.y);
+        animator.SetFloat("Speed", move.magnitude);
+
         //Debug.Log(move);
     }
     void FixedUpdate()
@@ -41,5 +54,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
     }
+
+    
 
 }
