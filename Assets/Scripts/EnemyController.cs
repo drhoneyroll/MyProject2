@@ -10,7 +10,8 @@ public class EnemyController : MonoBehaviour
     float timer;
     int direction = 1;
     Animator animator;
-    
+    public int damage_collision=1;
+
     Vector2 move;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,12 +55,18 @@ public class EnemyController : MonoBehaviour
         rigidbody2d.MovePosition(position);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D (Collision2D collision)
     {
-        PlayerController player = other.gameObject.GetComponent<PlayerController>();
-        if (player != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            player.ChangeHealth(-1);
+            Debug.Log("Enemy collided with Player!");
+            collision.gameObject.GetComponent<PlayerController>().ChangeHealth(-damage_collision);
         }
+        
+        //PlayerController player = other.gameObject.GetComponent<PlayerController>();
+        //if (player != null)
+        //{
+        //    player.ChangeHealth(-1);
+        //}
     }
 }
