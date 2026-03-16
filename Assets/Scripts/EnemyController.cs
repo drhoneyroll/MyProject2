@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour
@@ -10,6 +11,8 @@ public class EnemyController : MonoBehaviour
     float timer;
     int direction = 1;
     Animator animator;
+    private int current_health;
+    public int max_health;
     
     Vector2 move;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -61,5 +64,11 @@ public class EnemyController : MonoBehaviour
         {
             player.ChangeHealth(-1);
         }
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        current_health = Mathf.Clamp(current_health + amount, 0, max_health);
+        Debug.Log(current_health + "/" + max_health);
     }
 }
