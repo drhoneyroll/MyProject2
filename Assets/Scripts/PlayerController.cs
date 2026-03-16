@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
     public int maxHealth = 5;
-    int currentHealth=1;
+    public int currentHealth=3;
     Vector2 move;
     public float movement_speed;
     public InputAction MoveAction;
@@ -51,8 +51,14 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        //currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        currentHealth+=amount;
         Debug.Log(currentHealth + "/" + maxHealth);
+
+        if (currentHealth<=0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     
