@@ -21,9 +21,10 @@ public class PathFindingTest : MonoBehaviour
 
     void Update()
     {
+        
         if(Chase.WasPressedThisFrame())
         {
-            PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+           PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
         }
     }
 
