@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Vector2 moveDirection = new Vector2(1, 0);
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         //QualitySettings.vSyncCount = 0;
@@ -51,8 +52,8 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
-        //currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        currentHealth+=amount;
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        //currentHealth+=amount;
         Debug.Log(currentHealth + "/" + maxHealth);
 
         if (currentHealth<=0)
