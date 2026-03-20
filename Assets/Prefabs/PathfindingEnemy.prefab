@@ -230,8 +230,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyLogic
   animator: {fileID: 6209868663161797763}
-  target: {fileID: 0}
+  target: {fileID: 5589759164205104565, guid: 549050b2feac400498cd1e1701d1e152, type: 3}
+  attackPostion: {fileID: 5589759164205104565, guid: 549050b2feac400498cd1e1701d1e152, type: 3}
   observeTime: 1
   inRange: 0
+  lastAttackPosition: {x: 0, y: 0, z: 0}
+  distanceThreshold: 1
   speed: 3
   gizmoSize: {x: 0.1, y: 0.1, z: 0.1}

@@ -15,7 +15,7 @@ public class ObserveState : State
     {
         base.Enter();
         Debug.Log("Observing!");
-        PathRequestManager.RequestPath(enemy.target.position, enemy.transform.position, enemy.OnPathFound); 
+        PathRequestManager.RequestPath(enemy.attackPostion.position, enemy.transform.position, enemy.OnPathFound); 
         enemy.StartCoroutine("BlockAttack");
     }
 

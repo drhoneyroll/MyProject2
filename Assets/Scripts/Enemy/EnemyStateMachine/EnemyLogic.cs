@@ -1,5 +1,6 @@
 using System.Collections;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyLogic : StateMachine
@@ -7,9 +8,13 @@ public class EnemyLogic : StateMachine
 
     public Animator animator;
     public Transform target;
+    public Transform attackPostion;
+
     public float observeTime = 2f;
 
     public bool inRange;
+    public Vector3 lastAttackPosition;
+    public float distanceThreshold;
     Rigidbody2D rb2d;
 
     [SerializeField] float speed = 5f;
@@ -55,6 +60,11 @@ public class EnemyLogic : StateMachine
         {
             spriteRenderer.flipX = true;
         }
+    }
+
+    void FixedUpdate()
+    {
+        CurrentState.PhysicsUpdate();
     }
 
     void OnTriggerEnter2D(Collider2D collision)

@@ -25,13 +25,17 @@ public class ChaseState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();   
-        PathRequestManager.RequestPath(enemy.transform.position, enemy.target.position, enemy.OnPathFound); 
+        if (Vector3.Distance(enemy.attackPostion.position, enemy.lastAttackPosition) > enemy.distanceThreshold)
+        {
+            PathRequestManager.RequestPath(enemy.transform.position, enemy.attackPostion.position, enemy.OnPathFound); 
+            enemy.lastAttackPosition = enemy.attackPostion.position;
+        }
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-    }
+    }      
 
 }
 
