@@ -14,7 +14,6 @@ public class AttackState : State
     public override void Enter()
     {
         base.Enter();
-        enemy.StopAllCoroutines();
         if(enemy.inRange)
         {
         Debug.Log("Attacking!");
