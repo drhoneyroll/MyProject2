@@ -4501,6 +4501,10 @@ PrefabInstance:
       propertyPath: attackPostion
       value: 
       objectReference: {fileID: 241371981}
+    - target: {fileID: 2891885629299803130, guid: 0876fec97772ec44685442b968d02809, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6911094116098052884, guid: 0876fec97772ec44685442b968d02809, type: 3}
       propertyPath: m_Name
       value: PathfindingEnemy
