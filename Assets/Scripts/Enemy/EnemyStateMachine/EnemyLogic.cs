@@ -11,6 +11,7 @@ public class EnemyLogic : StateMachine
     public Transform attackPostion;
 
     public float observeTime = 2f;
+    [SerializeField] int damage_collision = 1;
 
     public bool inRange;
     public Vector3 lastAttackPosition;
@@ -82,6 +83,15 @@ public class EnemyLogic : StateMachine
         {
             inRange = false;
             ChangeState(chaseState);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Enemy collided with Player!");
+            collision.gameObject.GetComponent<PlayerController>().ChangeHealth(-damage_collision);
         }
     }
 
