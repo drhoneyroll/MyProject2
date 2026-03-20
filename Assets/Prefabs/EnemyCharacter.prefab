@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6222264093430948558}
   - component: {fileID: 4371153505078806293}
   - component: {fileID: 8757899978772894728}
+  - component: {fileID: -6852400062006661569}
   m_Layer: 0
   m_Name: EnemyCharacter
   m_TagString: Untagged
@@ -189,3 +190,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-6852400062006661569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4188272589144457387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b8ad33017e7934c8f4f420f5acb43d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  speed: 3
+  vertical: 1
+  changeTime: 3
+  damage: 1
+  max_health: 0
+  damage_collision: 1

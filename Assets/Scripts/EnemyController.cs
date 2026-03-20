@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour
@@ -9,7 +10,11 @@ public class EnemyController : MonoBehaviour
     public float changeTime = 3.0f;
     float timer;
     int direction = 1;
+    public int damage = 1;
     Animator animator;
+    private int current_health;
+    public int max_health;
+    public int damage_collision=1;
     
     Vector2 move;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -54,12 +59,24 @@ public class EnemyController : MonoBehaviour
         rigidbody2d.MovePosition(position);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D (Collision2D collision)
     {
-        PlayerController player = other.gameObject.GetComponent<PlayerController>();
-        if (player != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            player.ChangeHealth(-1);
+            Debug.Log("Enemy collided with Player!");
+            collision.gameObject.GetComponent<PlayerController>().ChangeHealth(-damage_collision);
         }
+        
+        //PlayerController player = other.gameObject.GetComponent<PlayerController>();
+        //if (player != null)
+        //{
+        //    player.ChangeHealth(-1);
+        //}
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        current_health = Mathf.Clamp(current_health + amount, 0, max_health);
+        Debug.Log(current_health + "/" + max_health);
     }
 }
