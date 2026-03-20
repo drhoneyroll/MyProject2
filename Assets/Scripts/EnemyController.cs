@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
@@ -74,9 +75,13 @@ public class EnemyController : MonoBehaviour
         //}
     }
 
-    public void ChangeHealth(int amount)
-    {
-        current_health = Mathf.Clamp(current_health + amount, 0, max_health);
-        Debug.Log(current_health + "/" + max_health);
-    }
+    //public void ChangeHealth(int amount)
+    //{
+    //    current_health = Mathf.Clamp(current_health + amount, 0, max_health);
+    //    if (current_health <= 0)
+    //    {
+    //        gameObject.SetActive(false);
+    //    }
+    //    Debug.Log(current_health + "/" + max_health);
+    //}
 }
