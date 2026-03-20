@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     private int current_health;
     public int max_health;
     public int damage_collision=1;
-    
+    //public PlayerHealth playerHealth;
     Vector2 move;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,20 +60,14 @@ public class EnemyController : MonoBehaviour
         rigidbody2d.MovePosition(position);
     }
 
-    private void OnCollisionEnter2D (Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Enemy collided with Player!");
-            collision.gameObject.GetComponent<PlayerController>().ChangeHealth(-damage_collision);
-        }
+
         
         //PlayerController player = other.gameObject.GetComponent<PlayerController>();
         //if (player != null)
         //{
         //    player.ChangeHealth(-1);
         //}
-    }
+    
 
     //public void ChangeHealth(int amount)
     //{

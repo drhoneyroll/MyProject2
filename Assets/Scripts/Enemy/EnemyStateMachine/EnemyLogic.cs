@@ -10,6 +10,8 @@ public class EnemyLogic : StateMachine
     public Transform target;
     public Transform attackPostion;
 
+    //public GameObject PlayerCharacter;
+
     public float observeTime = 2f;
     [SerializeField] int damage_collision = 1;
 
@@ -35,6 +37,7 @@ public class EnemyLogic : StateMachine
 
     void Awake()
     {
+        //playerBar=PlayerCharacter.GetComponentInChildren<Bar>();
         spriteRenderer =GetComponent<SpriteRenderer>();
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -94,6 +97,7 @@ public class EnemyLogic : StateMachine
         {
             Debug.Log("Enemy collided with Player!");
             collision.gameObject.GetComponent<PlayerController>().ChangeHealth(-damage_collision);
+            playerBar=collision.gameObject.GetComponentInChildren<Bar>();
             playerBar.Change(-damage_collision);
         }
     }

@@ -19,11 +19,20 @@ public class PlayerAttack : MonoBehaviour
     }
 
     private RaycastHit2D[] hits;
+
+    private Animator anim;
+
+    private void Start()
+    {
+        anim=GetComponent<Animator>();
+    }
+
     private void Update()
     {
         if (inputAction.WasPressedThisFrame())
         {
             Attack();
+            anim.SetTrigger("punch");
         }
     }
 
