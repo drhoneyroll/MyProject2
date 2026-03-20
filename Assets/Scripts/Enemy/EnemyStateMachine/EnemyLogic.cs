@@ -18,6 +18,8 @@ public class EnemyLogic : StateMachine
     public float distanceThreshold;
     Rigidbody2D rb2d;
 
+    public Bar playerBar;
+
     [SerializeField] float speed = 5f;
     Vector3[] path;
     int targetIndex;
@@ -92,6 +94,7 @@ public class EnemyLogic : StateMachine
         {
             Debug.Log("Enemy collided with Player!");
             collision.gameObject.GetComponent<PlayerController>().ChangeHealth(-damage_collision);
+            playerBar.Change(-damage_collision);
         }
     }
 

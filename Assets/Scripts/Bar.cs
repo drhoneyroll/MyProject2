@@ -30,6 +30,8 @@ public class Bar : MonoBehaviour
     
     private Coroutine _adjustBarWidthCoroutine;
 
+    GameObject instance;
+
     public void start()
     {
         //_fullWidth=_topBar.rect.width; //ovde je neki problem, nece da uzme topBar width, stavi ga na 0
@@ -74,7 +76,7 @@ public class Bar : MonoBehaviour
 
     }
 
-        public void Change(int amount)
+    public void Change(int amount)
     {
         Value=Mathf.Clamp(Value + amount, 0, MaxValue);
         if (_adjustBarWidthCoroutine != null)

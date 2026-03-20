@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -10,12 +11,17 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackRange = 1.5f;
     [SerializeField] private LayerMask attackableLayer;
     [SerializeField] private float damageAmount = 1f;
+    [SerializeField] InputAction inputAction;
 
+    void Awake()
+    {
+        inputAction.Enable();
+    }
 
     private RaycastHit2D[] hits;
     private void Update()
     {
-        if (UserInput.instance.controls.Attack.Attack.WasPressedThisFrame())
+        if (inputAction.WasPressedThisFrame())
         {
             Attack();
         }

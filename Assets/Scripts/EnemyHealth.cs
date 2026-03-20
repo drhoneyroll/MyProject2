@@ -12,9 +12,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         currentHealth=maxHealth;
     } 
 
-    public void Damage (float damageAmount)
+    public void Damage(float damageAmount)
     {
         currentHealth -= damageAmount;
+        Debug.Log(currentHealth);
         if (currentHealth <= 0)
         {
             Destroy(gameObject);

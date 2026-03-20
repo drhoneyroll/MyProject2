@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 6209868663161797763}
   - component: {fileID: 1184078890755984231}
   - component: {fileID: 2891885629299803130}
-  m_Layer: 0
+  - component: {fileID: 4202735638980873680}
+  m_Layer: 7
   m_Name: PathfindingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +159,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.05}
-  m_Radius: 0.09
+  m_Radius: 0.1
 --- !u!95 &6209868663161797763
 Animator:
   serializedVersion: 7
@@ -197,9 +198,11 @@ MonoBehaviour:
   target: {fileID: 0}
   attackPostion: {fileID: 0}
   observeTime: 1
+  damage_collision: 5
   inRange: 0
   lastAttackPosition: {x: 0, y: 0, z: 0}
   distanceThreshold: 0.5
+  playerBar: {fileID: 0}
   speed: 3
   gizmoSize: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!61 &2891885629299803130
@@ -209,7 +212,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 3950262514560324950}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6911094116098052884}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -303,5 +306,21 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6163174559390320874, guid: 08e9b8451a92ea947940917e79482896, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4202735638980873680}
   m_SourcePrefab: {fileID: 100100000, guid: 08e9b8451a92ea947940917e79482896, type: 3}
+--- !u!114 &4202735638980873680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911094116098052884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a78e1a519faf3145ab141cc16d54ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 3
