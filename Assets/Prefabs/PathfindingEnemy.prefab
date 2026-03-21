@@ -8,23 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< Updated upstream
-  - component: {fileID: 8201619793477443490}
-  - component: {fileID: 1435811018005245529}
-  - component: {fileID: 2122681443720937349}
-  - component: {fileID: 3129546616440125571}
-  - component: {fileID: 6209868663161797763}
-  - component: {fileID: 1184078890755984231}
-  - component: {fileID: 2891885629299803130}
-  m_Layer: 0
-  m_Name: PathfindingEnemy
-=======
   - component: {fileID: 6245546059867742768}
   - component: {fileID: 6072839255987725930}
   - component: {fileID: 8373670870093987230}
   m_Layer: 0
   m_Name: Graphics
->>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,17 +158,6 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-  m_GameObject: {fileID: 6911094116098052884}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-=======
   m_GameObject: {fileID: 6163174559390320874}
   m_BodyType: 0
   m_Simulated: 1
@@ -190,7 +167,6 @@ Rigidbody2D:
   m_LinearDamping: 20
   m_AngularDamping: 20
   m_GravityScale: 0
->>>>>>> Stashed changes
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -236,37 +212,9 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-<<<<<<< Updated upstream
-  m_Offset: {x: 0, y: -0.05}
-  m_Radius: 0.09
---- !u!95 &6209868663161797763
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7132812759092984482, guid: 08e9b8451a92ea947940917e79482896, type: 3}
-  m_PrefabInstance: {fileID: 3950262514560324950}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911094116098052884}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 556ed29f7ab85ca409875c0bda1a9245, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1184078890755984231
-=======
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.15
 --- !u!114 &5629793227960012276
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,15 +228,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyLogic
   target: {fileID: 0}
   attackPostion: {fileID: 0}
-<<<<<<< Updated upstream
-  observeTime: 1
-  inRange: 0
-  lastAttackPosition: {x: 0, y: 0, z: 0}
-  distanceThreshold: 0.5
-=======
   distanceThreshold: 0.2
   observeTime: 0.8
->>>>>>> Stashed changes
   speed: 3
   rollSpeed: 6
   damageOnCollision: 5
@@ -356,11 +297,7 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-  m_GameObject: {fileID: 6911094116098052884}
-=======
   m_GameObject: {fileID: 6937427820390400623}
->>>>>>> Stashed changes
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -400,65 +337,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
-<<<<<<< Updated upstream
---- !u!1001 &3950262514560324950
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3587478928897129082, guid: 08e9b8451a92ea947940917e79482896, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587478928897129082, guid: 08e9b8451a92ea947940917e79482896, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587478928897129082, guid: 08e9b8451a92ea947940917e79482896, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587478928897129082, guid: 08e9b8451a92ea947940917e79482896, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587478928897129082, guid: 08e9b8451a92ea947940917e79482896, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587478928897129082, guid: 08e9b8451a92ea947940917e79482896, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587478928897129082, guid: 08e9b8451a92ea947940917e79482896, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587478928897129082, guid: 08e9b8451a92ea947940917e79482896, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587478928897129082, guid: 08e9b8451a92ea947940917e79482896, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587478928897129082, guid: 08e9b8451a92ea947940917e79482896, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6163174559390320874, guid: 08e9b8451a92ea947940917e79482896, type: 3}
-      propertyPath: m_Name
-      value: PathfindingEnemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 08e9b8451a92ea947940917e79482896, type: 3}
-=======
 --- !u!114 &2855542199668617673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,4 +350,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyRange
   inRange: 0
->>>>>>> Stashed changes

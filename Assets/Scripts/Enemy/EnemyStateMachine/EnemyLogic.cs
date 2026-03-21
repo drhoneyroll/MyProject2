@@ -8,10 +8,10 @@ public class EnemyLogic : StateMachine
     [Header("Pathfind Targets")]
     public Transform target;
     public Transform attackPostion;
-    public float observeTime = 2f;
     public float distanceThreshold;
 
     [Header("Parametars")]
+    public float observeTime = 2f;
     [SerializeField] public float speed = 5f;
     [SerializeField] public float rollSpeed = 2000f;
     [SerializeField] int damageOnCollision = 1;
@@ -20,8 +20,6 @@ public class EnemyLogic : StateMachine
     public bool isPathfinding = true;
     public bool inRange = false;
     public bool isHit = false;
-
-    [SerializeField] Collider2D triggerCollider;
 
     [HideInInspector] public Animator animator;
     [HideInInspector] public Vector3 lastAttackPosition;
@@ -80,7 +78,6 @@ public class EnemyLogic : StateMachine
     {
         CurrentState.PhysicsUpdate();
     }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
