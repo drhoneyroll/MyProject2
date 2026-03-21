@@ -8,18 +8,10 @@ public class EnemyLogic : StateMachine
     [Header("Pathfind Targets")]
     public Transform target;
     public Transform attackPostion;
-<<<<<<< Updated upstream
-
     public float observeTime = 2f;
-
-    public bool inRange;
-    public Vector3 lastAttackPosition;
-=======
->>>>>>> Stashed changes
     public float distanceThreshold;
 
     [Header("Parametars")]
-    public float observeTime = 2f;
     [SerializeField] public float speed = 5f;
     [SerializeField] public float rollSpeed = 2000f;
     [SerializeField] int damageOnCollision = 1;
@@ -37,12 +29,8 @@ public class EnemyLogic : StateMachine
     [HideInInspector] public EnemyRange enemyRange;
     SpriteRenderer spriteRenderer;
 
-<<<<<<< Updated upstream
-    [SerializeField] float speed = 5f;
-=======
     public Bar playerBar;
 
->>>>>>> Stashed changes
     Vector3[] path;
     int targetIndex;
 
@@ -93,24 +81,6 @@ public class EnemyLogic : StateMachine
         CurrentState.PhysicsUpdate();
     }
 
-<<<<<<< Updated upstream
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject == target.gameObject)
-        {
-            inRange = true;
-            ChangeState(observeState);
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject == target.gameObject)
-        {
-            inRange = false;
-            ChangeState(chaseState);
-        }
-=======
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -126,7 +96,6 @@ public class EnemyLogic : StateMachine
     public void EnemyPushBackForce()
     {
         rb2d.AddForce((transform.position - target.transform.position).normalized * hitPushBackForce,ForceMode2D.Impulse);
->>>>>>> Stashed changes
     }
 
     #region PathFinding

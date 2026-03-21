@@ -8,8 +8,9 @@ public class PlayerAttack : MonoBehaviour
 {
     
     [SerializeField] private Transform attackTransform;
-    [SerializeField] private float attackRange = 1.5f;
     [SerializeField] private LayerMask attackableLayer;
+
+    [SerializeField] private float attackRange = 1.5f;
     [SerializeField] private float damageAmount = 1f;
     [SerializeField] InputAction inputAction;
 
@@ -33,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
 
         for (int i = 0; i < hits.Length; i++)
         {
-            IDamageable iDamageable = hits[i].collider.gameObject.GetComponent<IDamageable>();
+            iDamageable iDamageable = hits[i].collider.gameObject.GetComponent<IDamageable>();
             EnemyLogic enemy = hits[i].collider.gameObject.GetComponent<EnemyLogic>();
 
             if (iDamageable != null)
