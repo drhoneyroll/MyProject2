@@ -95,6 +95,17 @@ public class EnemyLogic : StateMachine
         rb2d.AddForce((transform.position - target.transform.position).normalized * hitPushBackForce,ForceMode2D.Impulse);
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Enemy collided with Player!");
+            collision.gameObject.GetComponent<PlayerController>().ChangeHealth(-damage_collision);
+            playerBar=collision.gameObject.GetComponentInChildren<Bar>();
+            playerBar.Change(-damage_collision);
+        }
+    }
+
     #region PathFinding
     public Coroutine followPath;
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
