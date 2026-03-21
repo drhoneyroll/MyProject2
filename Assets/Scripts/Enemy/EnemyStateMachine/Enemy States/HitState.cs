@@ -1,36 +1,37 @@
-using System.Collections;
 using UnityEngine;
 
-public class ObserveState : State
+public class HitState : State
 {
     public override void DoChecks()
         {
             base.DoChecks();           
         }
 
-    public ObserveState(EnemyLogic _enemy, string _animBoolName) : base(_enemy, _animBoolName)
+    public HitState(EnemyLogic _enemy, string _animBoolName) : base(_enemy, _animBoolName)
     {   
     }
 
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Observing!");
-        enemy.StartObserve();
+        enemy.EnemyPushBackForce();
+        enemy.transform.gameObject.layer = LayerMask.NameToLayer("Default");
+        enemy.HitStunOn();
     }
 
     public override void Exit()
     {
         base.Exit();
+        enemy.transform.gameObject.layer = LayerMask.NameToLayer("Attackable");
     }
 
     public override void LogicUpdate()
     {
-        base.LogicUpdate();
+        base.LogicUpdate();   
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
     }
-}
+}   

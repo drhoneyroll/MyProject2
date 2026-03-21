@@ -43,10 +43,16 @@ public class PlayerAttack : MonoBehaviour
         for (int i = 0; i < hits.Length; i++)
         {
             IDamageable iDamageable = hits[i].collider.gameObject.GetComponent<IDamageable>();
+            EnemyLogic enemyLogic = hits[i].collider.gameObject.GetComponent<EnemyLogic>();
 
             if (iDamageable != null)
             {
                 iDamageable.Damage(damageAmount);
+            }
+
+            if(enemyLogic != null)
+            {
+                enemyLogic.HitEnemy();
             }
         }
     }
