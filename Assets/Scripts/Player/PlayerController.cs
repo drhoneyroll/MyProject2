@@ -7,13 +7,14 @@ public class PlayerController : MonoBehaviour
 
 {
     Rigidbody2D rigidbody2d;
-    public int maxHealth = 5;
-    public int currentHealth=3;
+   // public int maxHealth = 5;
+    //public int currentHealth=3;
     Vector2 move;
     public float movement_speed;
     public InputAction MoveAction;
     Animator animator;
     Vector2 moveDirection = new Vector2(1, 0);
+    HealthSystem healthSystem;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
@@ -24,8 +25,7 @@ public class PlayerController : MonoBehaviour
         MoveAction.Enable();
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
-
+        healthSystem = GetComponent<HealthSystem>();
     }
 
     // Update is called once per frame
@@ -49,19 +49,4 @@ public class PlayerController : MonoBehaviour
     //Vector2 position = (Vector2)rigidbody2d.position + move * 5.0f * Time.deltaTime;
     rigidbody2d.MovePosition(position);
     }
-
-    public void ChangeHealth(int amount)
-    {
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        //currentHealth+=amount;
-        Debug.Log(currentHealth + "/" + maxHealth);
-
-        if (currentHealth<=0)
-        {
-            gameObject.SetActive(false);
-        }
-    }
-
-    
-
 }

@@ -47,7 +47,7 @@ public class Bar : MonoBehaviour
             //_fullWidth=_fullWidth * (80/100);
             Change(20);
             Debug.Log("Damage!");
-            GetComponentInParent<PlayerController>().ChangeHealth(20);
+            GetComponentInParent<IDamageable>().Heal(20);
         }
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
@@ -55,7 +55,7 @@ public class Bar : MonoBehaviour
             //_fullWidth=_fullWidth * (120/100);
             Change(-20);
             Debug.Log("Heal!");
-            GetComponentInParent<PlayerController>().ChangeHealth(-20);
+            GetComponentInParent<IDamageable>().Damage(20);
         }
     }
 

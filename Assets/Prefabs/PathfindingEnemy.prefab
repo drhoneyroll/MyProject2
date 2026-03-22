@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 7669886051296891108}
   - component: {fileID: 5366312753997073183}
   - component: {fileID: 5629793227960012276}
-  - component: {fileID: 9019060095605643088}
+  - component: {fileID: 4345313167251746955}
   m_Layer: 7
   m_Name: PathfindingEnemy
   m_TagString: Enemy
@@ -238,14 +238,13 @@ MonoBehaviour:
   isPathfinding: 1
   inRange: 0
   isHit: 0
-  triggerCollider: {fileID: 0}
   animator: {fileID: 8373670870093987230}
   lastAttackPosition: {x: 0, y: 0, z: 0}
   rb2d: {fileID: 0}
   enemyRange: {fileID: 0}
   playerBar: {fileID: 0}
   gizmoSize: {x: 0.1, y: 0.1, z: 0.1}
---- !u!114 &9019060095605643088
+--- !u!114 &4345313167251746955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,10 +253,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6163174559390320874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a78e1a519faf3145ab141cc16d54ded, type: 3}
+  m_Script: {fileID: 11500000, guid: bfca76f90d9aa7345a1ebcacb555d92c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 3
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
+  maxHeatlh: 3
+  currentHealth: 0
 --- !u!1 &6937427820390400623
 GameObject:
   m_ObjectHideFlags: 0

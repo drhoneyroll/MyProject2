@@ -84,7 +84,7 @@ public class EnemyLogic : StateMachine
         {
             isHit = true;
             Debug.Log("Enemy collided with Player!");
-            collision.gameObject.GetComponent<PlayerController>().ChangeHealth(-damageOnCollision);
+            collision.gameObject.GetComponent<IDamageable>().Damage(damageOnCollision);
             playerBar.Change(-damageOnCollision);
             EnemyPushBackForce();
         }
@@ -97,6 +97,7 @@ public class EnemyLogic : StateMachine
 
     #region PathFinding
     public Coroutine followPath;
+
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
         if (pathSuccessful)
@@ -148,6 +149,16 @@ public class EnemyLogic : StateMachine
             yield return new WaitForFixedUpdate();
             transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
         }
+    }
+
+    public void StopFollowPath()
+    {
+        if(followPath != null)
+        {
+            StopCoroutine(followPath);
+            path = null;
+        }
+        isPathfinding = false;
     }
 
     #endregion

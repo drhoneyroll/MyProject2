@@ -8,4 +8,9 @@ public interface IDamageable
     {
         
     }
+
+    public void Heal(float healtAmount)
+    {
+        
+    }
 }

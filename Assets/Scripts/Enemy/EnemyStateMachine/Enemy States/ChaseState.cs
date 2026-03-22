@@ -21,21 +21,22 @@ public class ChaseState : State
     public override void Exit()
     {
         base.Exit();
-        enemy.StopCoroutine(enemy.followPath);
+        enemy.StopFollowPath();
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();   
-        if (Vector3.Distance(enemy.attackPostion.position, enemy.lastAttackPosition) > enemy.distanceThreshold)
-        {
-            PathRequestManager.RequestPath(enemy.transform.position, enemy.attackPostion.position, enemy.OnPathFound); 
-            enemy.lastAttackPosition = enemy.attackPostion.position;
-        }
 
         if (enemy.inRange)
         {
             enemy.ChangeState(enemy.observeState);
+        }
+
+        if (Vector3.Distance(enemy.attackPostion.position, enemy.lastAttackPosition) > enemy.distanceThreshold)
+        {
+            PathRequestManager.RequestPath(enemy.transform.position, enemy.attackPostion.position, enemy.OnPathFound); 
+            enemy.lastAttackPosition = enemy.attackPostion.position;
         }
     }
 
