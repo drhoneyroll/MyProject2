@@ -13,6 +13,12 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float damageAmount = 1f;
     [SerializeField] InputAction inputAction;
 
+    [SerializeField] private float timeBtwAttacks = 0.15f;
+    public bool ShouldBeDamaging {get; private set; } = false;
+    private float attackTimeCounter;
+
+    private List<IDamageable> iDamageables = new List<IDamageable>();
+
     void Awake()
     {
         inputAction.Enable();
@@ -25,17 +31,21 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         anim=GetComponent<Animator>();
+        attackTimeCounter = timeBtwAttacks;
     }
 
     private void Update()
     {
-        if (inputAction.WasPressedThisFrame())
+        if (inputAction.WasPressedThisFrame() && attackTimeCounter >= timeBtwAttacks)
         {
-            Attack();
+            //Attack();
             anim.SetTrigger("punch");
+            attackTimeCounter = 0f;
         }
-    }
 
+        attackTimeCounter += Time.deltaTime;
+    }
+/*
     private void Attack()
     {
         hits = Physics2D.CircleCastAll(attackTransform.position, attackRange, transform.right, 0f, attackableLayer);
@@ -56,9 +66,69 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
+*/
+
+    public IEnumerator DamageWhileSlashIsActive()
+    {
+        ShouldBeDamaging = true;
+        //Debug.Log("Im in DamageWhileSlashIsActive");
+        while(ShouldBeDamaging)
+        {
+            Debug.Log("Im in while loop");
+            hits = Physics2D.CircleCastAll(attackTransform.position, attackRange, transform.right, 0f, attackableLayer);
+
+            for (int i = 0; i < hits.Length; i++) //vrti kroz sve targete zahvacene CircleCastom
+            {
+                Debug.Log("Iteracija for petlje"+i+' '+hits.Length);
+                IDamageable iDamageable = hits[i].collider.gameObject.GetComponent<IDamageable>();
+                
+
+                //iDamageable.Damage(damageAmount);
+                //iDamageables.Add(iDamageable);
+                //Debug.Log("iDamageable: "+iDamageable+"   iDamageable.HasTakenDamage: "+iDamageable.HasTakenDamage);
+                if (iDamageable != null && !iDamageable.HasTakenDamage)
+                {
+                    Debug.Log("Damage?");
+                    iDamageable.Damage(damageAmount);
+                    iDamageables.Add(iDamageable);
+                }
+            }
+            Debug.Log("Should Be Damaging: "+ ShouldBeDamaging);
+            yield return null; //wait for one more frame (game will freeze without this)
+        }
+
+        ReturnAttackablesToDamageable();
+    }
+
+    private void ReturnAttackablesToDamageable()
+    {
+        Debug.Log("ReturnAttackablesToDamageable");
+        foreach (IDamageable thingThatWasDamaged in iDamageables)
+        {
+            Debug.Log("thingThatWasDamaged: " + thingThatWasDamaged + " " + thingThatWasDamaged.HasTakenDamage);
+            thingThatWasDamaged.HasTakenDamage = false;
+            Debug.Log("thingThatWasDamaged: " + thingThatWasDamaged + " " + thingThatWasDamaged.HasTakenDamage);
+        }
+
+        iDamageables.Clear();
+    }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(attackTransform.position,attackRange);
     }
+
+    #region Animation Triggers
+
+    public void ShouldBeDamagingToTrue()
+    {
+        ShouldBeDamaging = true;
+    }
+
+    public void ShouldBeDamagingToFalse()
+    {
+        ShouldBeDamaging = false;
+    }
+
+    #endregion
 }
