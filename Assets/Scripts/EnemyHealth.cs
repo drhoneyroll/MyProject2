@@ -7,6 +7,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private float currentHealth;
 
+    public bool HasTakenDamage { get; set; }
+
     private void Start()
     {
         currentHealth=maxHealth;
@@ -14,8 +16,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void Damage(float damageAmount)
     {
+
+        HasTakenDamage = true;
+
         currentHealth -= damageAmount;
-        Debug.Log(currentHealth);
+        Debug.Log("enemy health: " + currentHealth);
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
