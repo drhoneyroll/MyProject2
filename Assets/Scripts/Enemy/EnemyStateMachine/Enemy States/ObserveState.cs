@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class ObserveState : State
@@ -16,7 +15,8 @@ public class ObserveState : State
     {
         base.Enter();
         Debug.Log("Observing!");
-        enemy.StartObserve();
+        PathRequestManager.RequestPath(enemy.attackPostion.position, enemy.transform.position, enemy.OnPathFound); 
+        enemy.StartCoroutine("BlockAttack");
     }
 
     public override void Exit()
@@ -26,7 +26,7 @@ public class ObserveState : State
 
     public override void LogicUpdate()
     {
-        base.LogicUpdate();
+        base.LogicUpdate();   
     }
 
     public override void PhysicsUpdate()

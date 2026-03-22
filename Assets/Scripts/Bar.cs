@@ -32,7 +32,7 @@ public class Bar : MonoBehaviour
 
     GameObject instance;
 
-    public void Start()
+    public void start()
     {
         //_fullWidth=_topBar.rect.width; //ovde je neki problem, nece da uzme topBar width, stavi ga na 0
         
@@ -83,7 +83,7 @@ public class Bar : MonoBehaviour
         {
             StopCoroutine(_adjustBarWidthCoroutine);           
         }
-
         _adjustBarWidthCoroutine = StartCoroutine(AdjustBarWidth(amount));
+        
     }
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class ChaseState : State
@@ -21,7 +20,6 @@ public class ChaseState : State
     public override void Exit()
     {
         base.Exit();
-        enemy.StopCoroutine(enemy.followPath);
     }
 
     public override void LogicUpdate()
@@ -31,11 +29,6 @@ public class ChaseState : State
         {
             PathRequestManager.RequestPath(enemy.transform.position, enemy.attackPostion.position, enemy.OnPathFound); 
             enemy.lastAttackPosition = enemy.attackPostion.position;
-        }
-
-        if (enemy.inRange)
-        {
-            enemy.ChangeState(enemy.observeState);
         }
     }
 
