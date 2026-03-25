@@ -12,15 +12,10 @@ public class PlayerAttack_improvment : MonoBehaviour
     [SerializeField] private LayerMask attackableLayer;
     [SerializeField] private float damageAmount = 1f;
     [SerializeField] InputAction inputAction;
-
     private RaycastHit2D[] hits;
-
-    //private Animator anim;
-
     [SerializeField] private float timeBtwAttacks = 0.15f;
     public bool ShouldBeDamaging {get; private set; } = false;
     private float attackTimeCounter;
-
     private List<IDamageable> iDamageables = new List<IDamageable>();
 
     void Awake()
@@ -39,7 +34,6 @@ public class PlayerAttack_improvment : MonoBehaviour
         if (inputAction.WasPressedThisFrame() && attackTimeCounter >= timeBtwAttacks)
         {
             Attack();
-            //anim.SetTrigger("punch");
             attackTimeCounter = 0f;
         }
 
@@ -59,7 +53,6 @@ public class PlayerAttack_improvment : MonoBehaviour
     public IEnumerator DamageWhileSlashIsActive()
     {
         ShouldBeDamaging = true;
-        //Debug.Log("Im in DamageWhileSlashIsActive");
         while(ShouldBeDamaging)
         {
             Debug.Log("Im in while loop");
@@ -69,11 +62,7 @@ public class PlayerAttack_improvment : MonoBehaviour
             {
                 Debug.Log("Iteracija for petlje"+i+' '+hits.Length);
                 IDamageable iDamageable = hits[i].collider.gameObject.GetComponent<IDamageable>();
-                
-
-                //iDamageable.Damage(damageAmount);
-                //iDamageables.Add(iDamageable);
-                //Debug.Log("iDamageable: "+iDamageable+"   iDamageable.HasTakenDamage: "+iDamageable.HasTakenDamage);
+;
                 if (iDamageable != null && !iDamageable.HasTakenDamage)
                 {
                     Debug.Log("Damage?");

@@ -18,27 +18,18 @@ public class Bar : MonoBehaviour
     private GameObject obj;
     [SerializeField]
     private RectTransform _topBar;
-    
     [SerializeField]
     private RectTransform _bottomBar;
-
     [SerializeField]
     private float _animationSpeed = 1f;
-
     public float _fullWidth;
     private float TargetWidth => Value * _fullWidth / MaxValue;
-    
     private Coroutine _adjustBarWidthCoroutine;
-
     GameObject instance;
-
-    public void start()
+    public void Start()
     {
         //_fullWidth=_topBar.rect.width; //ovde je neki problem, nece da uzme topBar width, stavi ga na 0
-        
     }
-
-
     private void Update()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -73,7 +64,6 @@ public class Bar : MonoBehaviour
             yield return null;
         }
         slowChangeBar.SetWidth(TargetWidth);
-
     }
 
     public void Change(int amount)
@@ -84,6 +74,5 @@ public class Bar : MonoBehaviour
             StopCoroutine(_adjustBarWidthCoroutine);           
         }
         _adjustBarWidthCoroutine = StartCoroutine(AdjustBarWidth(amount));
-        
     }
 }

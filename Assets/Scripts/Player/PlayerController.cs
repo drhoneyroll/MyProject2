@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] public InputAction AttackAction;
 
-    public PlayerAttack_improvment player_Combat;
+    //public PlayerAttack_improvment player_Combat;
 
 
     Vector2 moveDirection = new Vector2(0, 0);
@@ -43,16 +43,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
-        
-
-
-        if (AttackAction.WasPressedThisFrame())
+        /*if (AttackAction.WasPressedThisFrame())
         {
             player_Combat.Attack();
         }
         //Debug.Log(move);
+        */
 
         if (move.magnitude <= 0.1)
         {
@@ -78,7 +74,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            moveDirection.Set(0f,0f);
+            moveDirection.Set(0f,0f); //bez ovoga ima da loopuje infinite u animaciji
         }
 
         if (moveDirection.x > 0 && transform.localScale.x < 0 ||
