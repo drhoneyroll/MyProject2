@@ -49,7 +49,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 iDamageable.Damage(damageAmount);
                 if(enemyLogic != null)
-                    enemyLogic.HitEnemy();
+                    enemyLogic.HitEnemy(enemyLogic.hitState);
             }
         }
     }

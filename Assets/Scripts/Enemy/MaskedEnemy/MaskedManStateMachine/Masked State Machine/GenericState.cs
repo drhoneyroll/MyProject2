@@ -1,11 +1,10 @@
-
-public abstract class State
+public abstract class GenericState<T> where T : Enemy
 {
-    protected EnemyLogic enemy;
+    protected T enemy;
     protected float startTime;
     private string AnimBoolName;
 
-    public State(EnemyLogic _enemy, string _animBoolName)
+    public GenericState(T _enemy, string _animBoolName)
     {
         enemy = _enemy;
         AnimBoolName = _animBoolName;

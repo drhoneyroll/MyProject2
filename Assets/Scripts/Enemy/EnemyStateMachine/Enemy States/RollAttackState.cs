@@ -31,6 +31,7 @@ public class RollAttackState : State
         base.LogicUpdate();
         if (enemy.isHit || !enemy.isPathfinding)
         {
+            enemy.isPathfinding = false;
             enemy.ChangeState(enemy.observeState);
         }
     }

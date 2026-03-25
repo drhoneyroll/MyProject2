@@ -1,9 +1,8 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
-public class EnemyLogic : StateMachine
+public class Enemy : StateMachine
 {
-
     #region  Parametars
     [Header("Pathfind Targets")]
     public Transform target;
@@ -11,15 +10,10 @@ public class EnemyLogic : StateMachine
     public float distanceThreshold;
 
     [Header("Parametars")]
-    [SerializeField] private float observeTime = 0.8f;
-    [SerializeField] private float rollSpeed = 8f;
-    [SerializeField] private int damageOnCollision = 5;
-    [SerializeField] private float hitPushBackForce = 300f;
     [SerializeField] private float speed = 3f;
     [SerializeField] private float hitStunDuration = 0.4f;
     public bool isPathfinding = true;
     public bool inRange = false;
-    public bool isHit = false;
 
     [SerializeField] Vector3 gizmoSize = Vector3.one;
     [HideInInspector] public Animator animator;
@@ -28,17 +22,9 @@ public class EnemyLogic : StateMachine
     EnemyRange enemyRange;
     SpriteRenderer spriteRenderer;
 
-    #region States
-    [HideInInspector] public ChaseState chaseState;
-    [HideInInspector] public RollAttackState rollAttackState;
-    [HideInInspector] public ObserveState observeState;
-    [HideInInspector] public HitState hitState;
-    #endregion
-
     public Bar playerBar;
     protected Vector3[] path;
     protected int targetIndex;
-
     #endregion
 
     void Awake()
@@ -48,22 +34,10 @@ public class EnemyLogic : StateMachine
         enemyRange = transform.GetChild(1).GetComponent<EnemyRange>(); 
         rb2d = GetComponent<Rigidbody2D>();
         playerBar = FindAnyObjectByType<Bar>();
-
-        chaseState = new ChaseState(this,"chase");
-        observeState = new ObserveState(this,"observe");
-        rollAttackState = new RollAttackState(this,"attack");
-        hitState = new HitState(this,"hit");
-    }
-
-    void Start()
-    {
-        Initilize(chaseState);
     }
 
     void Update()
     {
-        CurrentState.LogicUpdate();
-
         inRange = enemyRange.inRange;
 
         if(transform.position.x < target.transform.position.x) 
@@ -75,34 +49,7 @@ public class EnemyLogic : StateMachine
             spriteRenderer.flipX = true;
         }
     }
-
-    void FixedUpdate()
-    {
-        CurrentState.PhysicsUpdate();
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isHit = true;
-            Debug.Log("Enemy collided with Player!");
-            collision.gameObject.GetComponent<IDamageable>().Damage(damageOnCollision);
-            playerBar.Change(-damageOnCollision);
-            EnemyPushBackForce();
-        }
-    }
-
-    public void EnemyPushBackForce()
-    {
-        rb2d.AddForce((transform.position - target.transform.position).normalized * hitPushBackForce,ForceMode2D.Impulse);
-    }
-
-    public void RollAttack(Vector3 direction)
-    {
-        transform.position = Vector3.MoveTowards(transform.position, direction, rollSpeed * Time.deltaTime);
-    }
-
+    
     #region PathFinding
 
     public Coroutine followPath;
@@ -117,19 +64,6 @@ public class EnemyLogic : StateMachine
 
             isPathfinding = true;
             followPath = StartCoroutine(FollowPath(speed));
-        }
-    }
-
-    public void OnRollPathFound(Vector3[] newPath, bool pathSuccessful)
-    {
-        if (pathSuccessful)
-        {
-            path = newPath;
-            if (followPath != null)
-                StopCoroutine(followPath);
-
-            isPathfinding = true;
-            followPath = StartCoroutine(FollowPath(rollSpeed));
         }
     }
 
@@ -172,63 +106,6 @@ public class EnemyLogic : StateMachine
 
     #endregion
 
-    #region ObserveFunction
-
-    public Coroutine observe;
-
-    public void StartObserve()
-    {
-        if(observe != null)
-        {
-            StopCoroutine(observe);
-        }
-        
-        observe = StartCoroutine(Observe());
-    }
-
-    IEnumerator Observe()
-    {      
-        yield return new WaitForSecondsRealtime(observeTime);
-
-        if (inRange)
-        {
-            ChangeState(rollAttackState);
-        } 
-        else
-        {
-            ChangeState(chaseState);
-        }
-    }
-
-#endregion
-
-    #region EnemyIsHit
-
-    public void HitEnemy(State _hitState)
-    {
-        StopAllCoroutines();
-        ChangeState(_hitState);
-    }
-
-    public Coroutine hitStun;
-
-    public void HitStunOn(State _recoveryState)
-    {
-        if(hitStun != null)
-            StopCoroutine(HitStun(_recoveryState));
-
-        hitStun = StartCoroutine(HitStun(_recoveryState));
-    }
-
-    IEnumerator HitStun(State _recoveryState)
-    {
-        yield return new WaitForSecondsRealtime(hitStunDuration);
-        ChangeState(_recoveryState);
-        yield return null;
-    }
-
-#endregion
-    
     public void OnDrawGizmos()
     {
         if(path != null)

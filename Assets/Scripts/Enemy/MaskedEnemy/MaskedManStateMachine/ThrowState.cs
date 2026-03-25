@@ -1,29 +1,25 @@
 using UnityEngine;
 
-public class HitState : State
+public class ThrowState : GenericState<MaskedEnemyLogic>
 {
     public override void DoChecks()
         {
             base.DoChecks();           
         }
 
-    public HitState(EnemyLogic _enemy, string _animBoolName) : base(_enemy, _animBoolName)
+    public ThrowState(MaskedEnemyLogic _enemy, string _animBoolName) : base(_enemy, _animBoolName)
     {   
     }
 
     public override void Enter()
     {
         base.Enter();
-        enemy.EnemyPushBackForce();
-        enemy.isPathfinding = false;
-        enemy.transform.gameObject.layer = LayerMask.NameToLayer("Default");
-        enemy.HitStunOn(enemy.observeState);
+        Debug.Log("Attacking!");
     }
 
     public override void Exit()
     {
         base.Exit();
-        enemy.transform.gameObject.layer = LayerMask.NameToLayer("Attackable");
     }
 
     public override void LogicUpdate()
@@ -35,4 +31,4 @@ public class HitState : State
     {
         base.PhysicsUpdate();
     }
-}   
+}
