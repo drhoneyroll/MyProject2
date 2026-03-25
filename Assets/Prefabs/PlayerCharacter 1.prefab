@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4814494782265632762}
   - component: {fileID: 6418646107796059741}
   - component: {fileID: 7826452528422984325}
+  - component: {fileID: 7526796825220793607}
   m_Layer: 7
   m_Name: PlayerCharacter 1
   m_TagString: Player
@@ -164,6 +165,25 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
+  animator: {fileID: 6418646107796059741}
+  AttackAction:
+    m_Name: Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c57f9f42-1f58-4443-a161-acdaa93bede2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: c9be0fc9-0efb-4bef-ae13-fa9abcd30463
+      m_Path: <Keyboard>/k
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Attack
+      m_Flags: 0
+    m_Flags: 0
+  player_Combat: {fileID: 7526796825220793607}
 --- !u!50 &4120932529980242113
 Rigidbody2D:
   serializedVersion: 5
@@ -266,7 +286,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2341836740286800112}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 540c619a04ad39f4cb994c392b0196f4, type: 3}
   m_Name: 
@@ -293,6 +313,35 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Input
       m_Flags: 0
+    m_Flags: 0
+  timeBtwAttacks: 0.15
+--- !u!114 &7526796825220793607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341836740286800112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968605f87bb7747428798564e8fd394f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack_improvment
+  anim: {fileID: 6418646107796059741}
+  attackTransform: {fileID: 6314880900063696635}
+  attackRange: 0.3
+  attackableLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  damageAmount: 1
+  inputAction:
+    m_Name: Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8b107e14-acab-4682-b898-31861a78e6ba
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
     m_Flags: 0
   timeBtwAttacks: 0.15
 --- !u!1 &4763080001057534671
