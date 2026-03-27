@@ -95,10 +95,18 @@ public class EnemyLogic : StateMachine
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Enemy collided with Player!");
-            collision.gameObject.GetComponent<PlayerController>().ChangeHealth(-damage_collision);
-            playerBar=collision.gameObject.GetComponentInChildren<Bar>();
-            playerBar.Change(-damage_collision);
+            if (!collision.gameObject.GetComponent<CapsuleCollider2D>().enabled)
+            {
+                //Debug.Log("Enemy collided with Player!");
+                collision.gameObject.GetComponent<PlayerController>().ChangeHealth(-damage_collision);
+                playerBar=collision.gameObject.GetComponentInChildren<Bar>();
+                playerBar.Change(-damage_collision);
+            }
+            /*else
+            {
+                //Debug.Log("Enemy blocked!");
+            }*/
+            
         }
     }
 

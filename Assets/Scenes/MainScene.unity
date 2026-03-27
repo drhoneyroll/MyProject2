@@ -4463,6 +4463,84 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &2003179492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2341836740286800112, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
+  m_PrefabInstance: {fileID: 4734364989517876299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2003179495 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6418646107796059741, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
+  m_PrefabInstance: {fileID: 4734364989517876299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2003179500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003179492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b34509d371f0749bba8bf0aad94a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBlock
+  blocking_input:
+    m_Name: Blocking_input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7f9b0c7c-f093-43fd-9570-d11dec42805e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a7814a1b-0bc8-467d-9c1d-2af645cbb981
+      m_Path: <Keyboard>/leftShift
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Blocking_input
+      m_Flags: 0
+    m_Flags: 0
+  anim: {fileID: 2003179495}
+  coll: {fileID: 2003179501}
+--- !u!70 &2003179501
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003179492}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.42737573, y: -0.029652845}
+  m_Size: {x: 0.08807603, y: 0.38138902}
+  m_Direction: 0
 --- !u!1001 &93476173692686880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4536,13 +4614,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 2434587763277239916, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.08038874
+      objectReference: {fileID: 0}
     - target: {fileID: 5589759164205104565, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.18
+      value: -10.29
       objectReference: {fileID: 0}
     - target: {fileID: 5589759164205104565, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5823
+      value: -3.56
       objectReference: {fileID: 0}
     - target: {fileID: 5589759164205104565, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4576,10 +4658,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    - target: {fileID: 7526796825220793607, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526796825220793607, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 742ccc10-6c35-400c-898e-230c7cd7f0c9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526796825220793607, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/space
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526796825220793607, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
+      propertyPath: inputAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Input
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7826452528422984325, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 5213832081838386102, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2341836740286800112, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2003179501}
+    - targetCorrespondingSourceObject: {fileID: 2341836740286800112, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2003179500}
   m_SourcePrefab: {fileID: 100100000, guid: 51b561e2a95f564468d13f38ec5c10a9, type: 3}
 --- !u!1001 &6774043095199287657
 PrefabInstance:
