@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AttackState : State
@@ -14,14 +16,7 @@ public class AttackState : State
     public override void Enter()
     {
         base.Enter();
-        if(enemy.inRange)
-        {
         Debug.Log("Attacking!");
-        }
-        else
-        {
-            enemy.ChangeState(enemy.chaseState);
-        }
     }
 
     public override void Exit()
@@ -38,4 +33,5 @@ public class AttackState : State
     {
         base.PhysicsUpdate();
     }
+
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HealthCollectible : MonoBehaviour
 {
-    public int incr;
+    [SerializeField] int healAmount;
     Bar playerBar;
 
     void Awake()
@@ -17,8 +17,8 @@ public class HealthCollectible : MonoBehaviour
 
         if (controller !=null )
         {
-            controller.ChangeHealth(incr);
-            playerBar.Change(incr);
+            controller.GetComponent<IDamageable>().Heal(healAmount);
+            playerBar.Change(healAmount);
             Destroy(gameObject);
         }
     }

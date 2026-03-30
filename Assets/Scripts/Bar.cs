@@ -12,24 +12,34 @@ public class Bar : MonoBehaviour
     //public int Value {get;private set;}
     //public void Change(int amount)
     [field:SerializeField]
-    public int MaxValue {get; private set; }
+    public float MaxValue {get; private set; }
     [field:SerializeField]
-    public int Value {get; private set; }
+    public float Value {get; private set; }
     private GameObject obj;
     [SerializeField]
     private RectTransform _topBar;
+    
     [SerializeField]
     private RectTransform _bottomBar;
+
     [SerializeField]
     private float _animationSpeed = 1f;
+
     public float _fullWidth;
     private float TargetWidth => Value * _fullWidth / MaxValue;
+    
     private Coroutine _adjustBarWidthCoroutine;
+
     GameObject instance;
+
     public void Start()
     {
         //_fullWidth=_topBar.rect.width; //ovde je neki problem, nece da uzme topBar width, stavi ga na 0
+        MaxValue = GetComponentInParent<HealthSystem>().GetHealth();
+        Value = MaxValue;
     }
+
+
     private void Update()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -38,7 +48,7 @@ public class Bar : MonoBehaviour
             //_fullWidth=_fullWidth * (80/100);
             Change(20);
             Debug.Log("Damage!");
-            GetComponentInParent<PlayerController>().ChangeHealth(20);
+            GetComponentInParent<IDamageable>().Heal(20);
         }
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
@@ -46,7 +56,7 @@ public class Bar : MonoBehaviour
             //_fullWidth=_fullWidth * (120/100);
             Change(-20);
             Debug.Log("Heal!");
-            GetComponentInParent<PlayerController>().ChangeHealth(-20);
+            GetComponentInParent<IDamageable>().Damage(20);
         }
     }
 
@@ -64,6 +74,7 @@ public class Bar : MonoBehaviour
             yield return null;
         }
         slowChangeBar.SetWidth(TargetWidth);
+
     }
 
     public void Change(int amount)
@@ -73,6 +84,7 @@ public class Bar : MonoBehaviour
         {
             StopCoroutine(_adjustBarWidthCoroutine);           
         }
+
         _adjustBarWidthCoroutine = StartCoroutine(AdjustBarWidth(amount));
     }
 }

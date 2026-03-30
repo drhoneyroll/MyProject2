@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ChaseState : State
@@ -20,11 +21,18 @@ public class ChaseState : State
     public override void Exit()
     {
         base.Exit();
+        enemy.StopFollowPath();
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();   
+
+        if (enemy.inRange)
+        {
+            enemy.ChangeState(enemy.observeState);
+        }
+
         if (Vector3.Distance(enemy.attackPostion.position, enemy.lastAttackPosition) > enemy.distanceThreshold)
         {
             PathRequestManager.RequestPath(enemy.transform.position, enemy.attackPostion.position, enemy.OnPathFound); 

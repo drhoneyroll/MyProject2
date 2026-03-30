@@ -1,10 +1,7 @@
-using System.Collections;
-using UnityEngine;
 
-public abstract class State 
+public abstract class State
 {
     protected EnemyLogic enemy;
-
     protected float startTime;
     private string AnimBoolName;
 
@@ -17,6 +14,7 @@ public abstract class State
     {
         enemy.animator.SetBool(AnimBoolName, false);
     }
+
     public virtual void Enter()
     {
         DoChecks();
