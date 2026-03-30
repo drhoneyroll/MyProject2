@@ -4515,6 +4515,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 239831703930652707, guid: 549050b2feac400498cd1e1701d1e152, type: 3}
+      propertyPath: AttackAction.m_Name
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 2341836740286800112, guid: 549050b2feac400498cd1e1701d1e152, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter

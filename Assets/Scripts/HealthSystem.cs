@@ -4,6 +4,7 @@ public class HealthSystem : MonoBehaviour, IDamageable
 {
     [SerializeField] float maxHeatlh;
     [SerializeField] float currentHealth;
+    public bool HasTakenDamage {get; set;}
 
     void Start()
     {
