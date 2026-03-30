@@ -15,7 +15,7 @@ public class PlayerAttack_improvment : MonoBehaviour
     [SerializeField] private float timeBtwAttacks = 0.15f;
     public bool ShouldBeDamaging {get; private set; } = false;
     private float attackTimeCounter;
-    private List<IDamageable> iDamageables = new List<IDamageable>();
+    private List<HealthSystem> iDamageables = new List<HealthSystem>();
 
     void Awake()
     {
@@ -60,14 +60,21 @@ public class PlayerAttack_improvment : MonoBehaviour
             for (int i = 0; i < hits.Length; i++) //vrti kroz sve targete zahvacene CircleCastom
             {
                 Debug.Log("Iteracija for petlje"+i+' '+hits.Length);
-                IDamageable iDamageable = hits[i].collider.gameObject.GetComponent<IDamageable>();
-;
+                HealthSystem iDamageable = hits[i].collider.gameObject.GetComponent<HealthSystem>();
+                EnemyLogic enemyLogic = hits[i].collider.gameObject.GetComponent<EnemyLogic>();            
+
                 if (iDamageable != null && !iDamageable.HasTakenDamage)
                 {
                     Debug.Log("Damage?");
                     iDamageable.Damage(damageAmount);
                     iDamageables.Add(iDamageable);
                 }
+
+                if(enemyLogic != null)
+                {
+                    enemyLogic.HitEnemy(enemyLogic.hitState);
+                }
+
             }
             Debug.Log("Should Be Damaging: "+ ShouldBeDamaging);
             yield return null; //wait for one more frame (game will freeze without this)

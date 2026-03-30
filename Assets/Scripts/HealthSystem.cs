@@ -28,6 +28,7 @@ public class HealthSystem : MonoBehaviour, IDamageable
 
     public void Damage(float damageAmount)
     {
+        HasTakenDamage = true;
         currentHealth = Mathf.Clamp(currentHealth - damageAmount,0, maxHeatlh);
         if(currentHealth <= 0)
         {
