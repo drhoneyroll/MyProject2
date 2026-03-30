@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1822586707812976928}
   - component: {fileID: 4209989333332159078}
   - component: {fileID: 107715014338733242}
-  - component: {fileID: 4865170188904431054}
   - component: {fileID: 7317415438470746541}
   - component: {fileID: 834698861349070592}
   - component: {fileID: 2727673979600459623}
@@ -31,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1782622099676074559}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.22, y: -1.98, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,21 +117,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4865170188904431054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782622099676074559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0616681d3c920454091953c51be0561d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponSaw
-  weaponUser: {fileID: 0}
-  target: {fileID: 0}
-  speed: 450
 --- !u!50 &7317415438470746541
 Rigidbody2D:
   serializedVersion: 5

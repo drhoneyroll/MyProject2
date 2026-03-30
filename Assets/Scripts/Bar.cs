@@ -12,9 +12,9 @@ public class Bar : MonoBehaviour
     //public int Value {get;private set;}
     //public void Change(int amount)
     [field:SerializeField]
-    public int MaxValue {get; private set; }
+    public float MaxValue {get; private set; }
     [field:SerializeField]
-    public int Value {get; private set; }
+    public float Value {get; private set; }
     private GameObject obj;
     [SerializeField]
     private RectTransform _topBar;
@@ -35,7 +35,8 @@ public class Bar : MonoBehaviour
     public void Start()
     {
         //_fullWidth=_topBar.rect.width; //ovde je neki problem, nece da uzme topBar width, stavi ga na 0
-        
+        MaxValue = GetComponentInParent<HealthSystem>().GetHealth();
+        Value = MaxValue;
     }
 
 
