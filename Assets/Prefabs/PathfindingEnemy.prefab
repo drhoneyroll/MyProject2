@@ -226,24 +226,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23af963dfbca1d4895c951703c0347d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyLogic
-  target: {fileID: 0}
-  attackPostion: {fileID: 0}
+  target: {fileID: 5589759164205104565, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
+  attackPostion: {fileID: 5589759164205104565, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
   distanceThreshold: 0.2
   observeTime: 0.8
-  speed: 3
   rollSpeed: 6
   damageOnCollision: 5
   hitPushBackForce: 300
+  speed: 3
   hitStunDuration: 0.4
   isPathfinding: 1
   inRange: 0
   isHit: 0
+  gizmoSize: {x: 0.1, y: 0.1, z: 0.1}
   animator: {fileID: 8373670870093987230}
   lastAttackPosition: {x: 0, y: 0, z: 0}
   rb2d: {fileID: 0}
-  enemyRange: {fileID: 0}
   playerBar: {fileID: 0}
-  gizmoSize: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!114 &4345313167251746955
 MonoBehaviour:
   m_ObjectHideFlags: 0
