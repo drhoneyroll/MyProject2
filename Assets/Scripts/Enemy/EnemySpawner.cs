@@ -29,8 +29,8 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(15f);
-            _minimumSpawnTime+=5;
-            _maximumSpawnTime-=5;
+            //_minimumSpawnTime+=5;
+            _maximumSpawnTime-=2.5f;
             //Debug.Log("15 seconds have passed");
         }
     }
