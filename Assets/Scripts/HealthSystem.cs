@@ -6,7 +6,7 @@ public class HealthSystem : MonoBehaviour, IDamageable
     [SerializeField] float currentHealth;
     public bool HasTakenDamage {get; set;}
 
-    void Start()
+    void Awake()
     {
         InitializeHealth();
     }

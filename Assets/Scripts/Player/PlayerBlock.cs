@@ -23,13 +23,11 @@ public class PlayerBlock : MonoBehaviour
     {
         if (blocking_input.IsPressed())
         {
-            Debug.Log("Pressed");
             anim.SetBool("IsBlocking",true);
             coll.enabled=true;
         }
         else
         {
-            Debug.Log("Not Pressed");
             anim.SetBool("IsBlocking",false);
             coll.enabled=false;
         }

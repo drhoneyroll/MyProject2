@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class EnemyLogic : StateMachine
@@ -12,9 +11,11 @@ public class EnemyLogic : StateMachine
     public float distanceThreshold;
 
     [Header("Parametars")]
-    [SerializeField] private float observeTime = 0.8f;
+    [SerializeField] private float observeTimeMin = 0.8f;
+    [SerializeField] private float observeTimeMax = 2f;
     [SerializeField] private float rollSpeed = 8f;
     [SerializeField] private int damageOnCollision = 5;
+    [SerializeField] private int dmageOnRollCollision = 10;
     [SerializeField] private float hitPushBackForce = 300f;
     [SerializeField] private float speed = 3f;
     [SerializeField] private float hitStunDuration = 0.4f;
@@ -49,6 +50,8 @@ public class EnemyLogic : StateMachine
         enemyRange = transform.GetChild(1).GetComponent<EnemyRange>(); 
         rb2d = GetComponent<Rigidbody2D>();
         playerBar = FindAnyObjectByType<Bar>();
+        target = FindAnyObjectByType<PlayerController>().transform;
+        attackPostion = FindAnyObjectByType<PlayerController>().transform;
 
         chaseState = new ChaseState(this,"chase");
         observeState = new ObserveState(this,"observe");
@@ -86,18 +89,25 @@ public class EnemyLogic : StateMachine
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.transform.CompareTag("Player"))
         {
             isHit = true;
-            if(!collision.gameObject.GetComponent<CapsuleCollider2D>().enabled)
+            if(collision.collider == target.GetComponent<CircleCollider2D>())
             {
                 Debug.Log("Enemy collided with Player!");
-                collision.gameObject.GetComponent<IDamageable>().Damage(damageOnCollision);
-                playerBar.Change(-damageOnCollision);
+                if(CurrentState == rollAttackState)
+                {
+                    collision.gameObject.GetComponent<IDamageable>().Damage(dmageOnRollCollision);
+                    playerBar.Change(-dmageOnRollCollision);
+                } 
+                else
+                {
+                    collision.gameObject.GetComponent<IDamageable>().Damage(damageOnCollision);
+                    playerBar.Change(-damageOnCollision);
+                }
             }
             EnemyPushBackForce();
-        } 
+        }    
     }
 
     public void EnemyPushBackForce()
@@ -195,7 +205,7 @@ public class EnemyLogic : StateMachine
 
     IEnumerator Observe()
     {      
-        yield return new WaitForSecondsRealtime(observeTime);
+        yield return new WaitForSecondsRealtime(Random.Range(observeTimeMin,observeTimeMax));
 
         if (inRange)
         {
