@@ -1,8 +1,5 @@
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-
 
 
 public class PlayerController : MonoBehaviour
