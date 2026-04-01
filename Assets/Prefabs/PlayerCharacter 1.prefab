@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack_improvment
   anim: {fileID: 6418646107796059741}
   attackTransform: {fileID: 6314880900063696635}
-  attackRange: 0.45
+  attackRange: 0.5
   attackableLayer:
     serializedVersion: 2
     m_Bits: 128

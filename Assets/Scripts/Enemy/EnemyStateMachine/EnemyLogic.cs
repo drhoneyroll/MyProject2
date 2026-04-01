@@ -15,6 +15,7 @@ public class EnemyLogic : StateMachine
     [SerializeField] private float observeTimeMax = 2f;
     [SerializeField] private float rollSpeed = 8f;
     [SerializeField] private int damageOnCollision = 5;
+    [SerializeField] private int dmageOnRollCollision = 10;
     [SerializeField] private float hitPushBackForce = 300f;
     [SerializeField] private float speed = 3f;
     [SerializeField] private float hitStunDuration = 0.4f;
@@ -92,8 +93,16 @@ public class EnemyLogic : StateMachine
             if(collision.collider == target.GetComponent<CircleCollider2D>())
             {
                 Debug.Log("Enemy collided with Player!");
-                collision.gameObject.GetComponent<IDamageable>().Damage(damageOnCollision);
-                playerBar.Change(-damageOnCollision);
+                if(CurrentState == rollAttackState)
+                {
+                    collision.gameObject.GetComponent<IDamageable>().Damage(dmageOnRollCollision);
+                    playerBar.Change(-dmageOnRollCollision);
+                } 
+                else
+                {
+                    collision.gameObject.GetComponent<IDamageable>().Damage(damageOnCollision);
+                    playerBar.Change(-damageOnCollision);
+                }
             }
             EnemyPushBackForce();
         }    

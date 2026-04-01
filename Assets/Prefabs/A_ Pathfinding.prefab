@@ -46,12 +46,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0937aee43fb9ab8429069c9fc25664a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grid
-  displayGridGizmos: 0
+  displayGridGizmos: 1
   unwalkableMask:
     serializedVersion: 2
     m_Bits: 64
-  gridWorldSize: {x: 22, y: 10}
+  gridWorldSize: {x: 50, y: 30}
   nodeRadius: 0.1
+  walkableRegions:
+  - terrainMask:
+      serializedVersion: 2
+      m_Bits: 512
+    terrainPenalty: 1
+  - terrainMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    terrainPenalty: 10
 --- !u!114 &6334232351285635838
 MonoBehaviour:
   m_ObjectHideFlags: 0
