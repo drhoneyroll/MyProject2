@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RollAttackState : State
@@ -10,11 +11,14 @@ public class RollAttackState : State
     public RollAttackState(EnemyLogic _enemy, string _animBoolName) : base(_enemy, _animBoolName)
     {   
     }
+    
+    float changeTimer = 3;
 
     public override void Enter()
     {
         base.Enter();
         enemy.isPathfinding = true;
+        changeTimer = 3;
         Debug.Log("Roll Attack State");
         PathRequestManager.RequestPath(new PathRequest(enemy.transform.position, enemy.attackPostion.transform.position, enemy.OnRollPathFound)); 
     }
@@ -34,6 +38,13 @@ public class RollAttackState : State
             enemy.isPathfinding = false;
             enemy.ChangeState(enemy.observeState);
         }
+
+        if(changeTimer < 0.1)
+        {
+            enemy.ChangeState(enemy.observeState);
+        }
+
+        changeTimer -= Time.deltaTime;
     }
 
     public override void PhysicsUpdate()

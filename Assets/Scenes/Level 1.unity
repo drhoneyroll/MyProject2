@@ -659,9 +659,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.044
       objectReference: {fileID: 0}
+    - target: {fileID: 2967766489311258282, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
+      propertyPath: maxHeatlh
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3852916502132790379, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713086647521889550, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
+      propertyPath: m_Radius
+      value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: 5589759164205104565, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2774,7 +2782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0937aee43fb9ab8429069c9fc25664a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grid
-  displayGridGizmos: 1
+  displayGridGizmos: 0
   unwalkableMask:
     serializedVersion: 2
     m_Bits: 64
