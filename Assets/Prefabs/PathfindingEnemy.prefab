@@ -318,8 +318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23af963dfbca1d4895c951703c0347d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyLogic
-  target: {fileID: 0}
-  attackPostion: {fileID: 0}
+  target: {fileID: 5589759164205104565, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
+  attackPostion: {fileID: 5589759164205104565, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
   distanceThreshold: 0.2
   observeTimeMin: 0.8
   observeTimeMax: 2

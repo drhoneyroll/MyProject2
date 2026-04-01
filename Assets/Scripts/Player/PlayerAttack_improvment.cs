@@ -79,12 +79,12 @@ public class PlayerAttack_improvment : MonoBehaviour
         ShouldBeDamaging = true;
         while(ShouldBeDamaging)
         {
-            Debug.Log("Im in while loop");
+            //Debug.Log("Im in while loop");
             hits = Physics2D.CircleCastAll(attackTransform.position, attackRange, transform.right, 0f, attackableLayer);
 
             for (int i = 0; i < hits.Length; i++) //vrti kroz sve targete zahvacene CircleCastom
             {
-                Debug.Log("Iteracija for petlje"+i+' '+hits.Length);
+                //Debug.Log("Iteracija for petlje" + i +' '+hits.Length);
                 HealthSystem iDamageable = hits[i].collider.gameObject.GetComponent<HealthSystem>();
                 EnemyLogic enemyLogic = hits[i].collider.gameObject.GetComponent<EnemyLogic>();       
 

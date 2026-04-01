@@ -57,6 +57,8 @@ public class EnemyLogic : StateMachine
         observeState = new ObserveState(this,"observe");
         rollAttackState = new RollAttackState(this,"attack");
         hitState = new HitState(this,"hit");
+        target = FindAnyObjectByType<PlayerController>().transform;
+        attackPostion = FindAnyObjectByType<PlayerController>().transform;
     }
 
     void Start()
