@@ -13,6 +13,7 @@ public class EnemyLogic : StateMachine
     [Header("Parametars")]
     [SerializeField] private float observeTimeMin = 0.8f;
     [SerializeField] private float observeTimeMax = 2f;
+    [SerializeField] private float observeTime;
     [SerializeField] private float rollSpeed = 8f;
     [SerializeField] private int damageOnCollision = 5;
     [SerializeField] private int dmageOnRollCollision = 10;
@@ -64,6 +65,7 @@ public class EnemyLogic : StateMachine
     void Start()
     {
         Initilize(chaseState);
+        observeTime = Random.Range(observeTimeMin,observeTimeMax);
     }
 
     void Update()
@@ -91,18 +93,19 @@ public class EnemyLogic : StateMachine
     {
         if (collision.transform.CompareTag("Player"))
         {
+            IDamageable idamage = collision.gameObject.GetComponent<IDamageable>();
             isHit = true;
             if(collision.collider == target.GetComponent<CircleCollider2D>())
             {
                 Debug.Log("Enemy collided with Player!");
                 if(CurrentState == rollAttackState)
                 {
-                    collision.gameObject.GetComponent<IDamageable>().Damage(dmageOnRollCollision);
+                    idamage.Damage(dmageOnRollCollision);
                     playerBar.Change(-dmageOnRollCollision);
                 } 
                 else
                 {
-                    collision.gameObject.GetComponent<IDamageable>().Damage(damageOnCollision);
+                    idamage.Damage(damageOnCollision);
                     playerBar.Change(-damageOnCollision);
                 }
             }
@@ -205,7 +208,7 @@ public class EnemyLogic : StateMachine
 
     IEnumerator Observe()
     {      
-        yield return new WaitForSecondsRealtime(Random.Range(observeTimeMin,observeTimeMax));
+        yield return new WaitForSecondsRealtime(observeTime);
 
         if (inRange)
         {
