@@ -56,7 +56,8 @@ public class EnemySpawner : MonoBehaviour
     }
     private void SetTimeUntilSpawn()
     {
+        _maximumSpawnTime=Mathf.Clamp(_maximumSpawnTime, 1f, 60f);
         _timeUntilSpawn=Random.Range(_minimumSpawnTime, _maximumSpawnTime);
-        _timeUntilSpawn=Mathf.Clamp(_timeUntilSpawn, 1f, 2f);
+        //_maximumSpawnTime=Mathf.Clamp(_maximumSpawnTime, 1f, 2f);
     }
 }
