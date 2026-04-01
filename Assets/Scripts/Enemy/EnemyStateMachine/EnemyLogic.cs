@@ -12,7 +12,8 @@ public class EnemyLogic : StateMachine
     public float distanceThreshold;
 
     [Header("Parametars")]
-    [SerializeField] private float observeTime = 0.8f;
+    [SerializeField] private float observeTimeMin = 0.8f;
+    [SerializeField] private float observeTimeMax = 2f;
     [SerializeField] private float rollSpeed = 8f;
     [SerializeField] private int damageOnCollision = 5;
     [SerializeField] private float hitPushBackForce = 300f;
@@ -49,6 +50,8 @@ public class EnemyLogic : StateMachine
         enemyRange = transform.GetChild(1).GetComponent<EnemyRange>(); 
         rb2d = GetComponent<Rigidbody2D>();
         playerBar = FindAnyObjectByType<Bar>();
+        target = FindAnyObjectByType<PlayerController>().transform;
+        attackPostion = FindAnyObjectByType<PlayerController>().transform;
 
         chaseState = new ChaseState(this,"chase");
         observeState = new ObserveState(this,"observe");
@@ -193,7 +196,7 @@ public class EnemyLogic : StateMachine
 
     IEnumerator Observe()
     {      
-        yield return new WaitForSecondsRealtime(observeTime);
+        yield return new WaitForSecondsRealtime(Random.Range(observeTimeMin,observeTimeMax));
 
         if (inRange)
         {

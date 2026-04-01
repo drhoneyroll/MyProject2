@@ -49,6 +49,31 @@ public class PlayerAttack_improvment : MonoBehaviour
         anim.SetBool("IsAttacking",false);
     }
 
+    public void ActivateSlashDamage()
+    {
+        Debug.Log("SLashing");
+        hits = Physics2D.CircleCastAll(attackTransform.position, attackRange, transform.right, 0f, attackableLayer);
+
+        for (int i = 0; i < hits.Length; i++) //vrti kroz sve targete zahvacene CircleCastom
+        {
+            Debug.Log("Iteracija for petlje"+i+' '+hits.Length);
+            HealthSystem iDamageable = hits[i].collider.gameObject.GetComponent<HealthSystem>();
+            EnemyLogic enemyLogic = hits[i].collider.gameObject.GetComponent<EnemyLogic>();       
+
+            if (iDamageable != null && !iDamageable.HasTakenDamage)
+            {
+                Debug.Log("Damage?");
+                iDamageable.Damage(damageAmount);
+                iDamageables.Add(iDamageable);
+            }
+
+            if(enemyLogic != null)
+            {
+                enemyLogic.HitEnemy(enemyLogic.hitState);
+            }
+        }
+    }
+
     public IEnumerator DamageWhileSlashIsActive()
     {
         ShouldBeDamaging = true;
@@ -61,7 +86,7 @@ public class PlayerAttack_improvment : MonoBehaviour
             {
                 Debug.Log("Iteracija for petlje"+i+' '+hits.Length);
                 HealthSystem iDamageable = hits[i].collider.gameObject.GetComponent<HealthSystem>();
-                EnemyLogic enemyLogic = hits[i].collider.gameObject.GetComponent<EnemyLogic>();            
+                EnemyLogic enemyLogic = hits[i].collider.gameObject.GetComponent<EnemyLogic>();       
 
                 if (iDamageable != null && !iDamageable.HasTakenDamage)
                 {
@@ -83,10 +108,10 @@ public class PlayerAttack_improvment : MonoBehaviour
         ReturnAttackablesToDamageable();
     }
 
-    private void ReturnAttackablesToDamageable()
+    public void ReturnAttackablesToDamageable()
     {
         Debug.Log("ReturnAttackablesToDamageable");
-        foreach (IDamageable thingThatWasDamaged in iDamageables)
+        foreach (HealthSystem thingThatWasDamaged in iDamageables)
         {
             Debug.Log("thingThatWasDamaged: " + thingThatWasDamaged + " " + thingThatWasDamaged.HasTakenDamage);
             thingThatWasDamaged.HasTakenDamage = false;

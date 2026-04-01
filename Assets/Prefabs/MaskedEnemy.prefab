@@ -285,6 +285,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponSaw
       objectReference: {fileID: 0}
+    - target: {fileID: 1782622099676074559, guid: e8500071271ad164bbef2333c6368c3f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1822586707812976928, guid: e8500071271ad164bbef2333c6368c3f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
