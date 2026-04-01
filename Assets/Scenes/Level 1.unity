@@ -665,11 +665,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5589759164205104565, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.63564
+      value: -5.62
       objectReference: {fileID: 0}
     - target: {fileID: 5589759164205104565, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.3831782
+      value: -2.34
       objectReference: {fileID: 0}
     - target: {fileID: 5589759164205104565, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -890,11 +890,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3587478928897129082, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.09
+      value: 1.63
       objectReference: {fileID: 0}
     - target: {fileID: 3587478928897129082, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.26
+      value: -2.12
       objectReference: {fileID: 0}
     - target: {fileID: 3587478928897129082, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: m_LocalPosition.z
@@ -930,7 +930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5629793227960012276, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: speed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5629793227960012276, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: target
@@ -942,7 +942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5629793227960012276, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: rollSpeed
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5629793227960012276, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: attackPostion
@@ -958,15 +958,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5629793227960012276, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: damageOnCollision
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6072839255987725930, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6072839255987725930, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6072839255987725930, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: m_Color.r
