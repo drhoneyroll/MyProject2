@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Security.Cryptography;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemyLogic : StateMachine
@@ -87,18 +88,17 @@ public class EnemyLogic : StateMachine
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.transform.CompareTag("Player"))
         {
             isHit = true;
-            if(!collision.gameObject.GetComponent<CapsuleCollider2D>().enabled)
+            if(collision.collider == target.GetComponent<CircleCollider2D>())
             {
                 Debug.Log("Enemy collided with Player!");
                 collision.gameObject.GetComponent<IDamageable>().Damage(damageOnCollision);
                 playerBar.Change(-damageOnCollision);
             }
             EnemyPushBackForce();
-        } 
+        }    
     }
 
     public void EnemyPushBackForce()

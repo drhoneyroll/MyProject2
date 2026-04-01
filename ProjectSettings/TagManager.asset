@@ -6,16 +6,17 @@ TagManager:
   tags:
   - Enemy
   - Walls
+  - Shield
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Unwalkable
   - Attackable
-  - 
+  - BlockerWall
   - 
   - 
   - 

@@ -1,5 +1,6 @@
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 
@@ -47,24 +48,13 @@ public class PlayerController : MonoBehaviour
         }
         //Debug.Log(move);
         */
+        move = MoveAction.ReadValue<Vector2>();
 
         if (move.magnitude <= 0.1)
         {
             animator.SetFloat("Speed", 0f);
         }
-    }
-    void FixedUpdate()
-    {
-        /*
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        
-        animator.SetFloat("horizontal", horizontal);
-        animator.SetFloat("vertical", vertical);
-        */
 
-        move = MoveAction.ReadValue<Vector2>();
-        //Debug.Log("move "+move);
         if(!Mathf.Approximately(move.x,0.0f) || !Mathf.Approximately(move.y,0.0f))
         {
             moveDirection.Set(move.x, move.y);
@@ -76,17 +66,30 @@ public class PlayerController : MonoBehaviour
         }
 
         if (moveDirection.x > 0 && transform.localScale.x < 0 ||
-                moveDirection.x < 0 && transform.localScale.x > 0)
-        {
+            moveDirection.x < 0 && transform.localScale.x > 0)
+        {           
             Flip();
         }
 
+
         animator.SetFloat("horizontal", Mathf.Abs(moveDirection.x));
         animator.SetFloat("vertical", Mathf.Abs(moveDirection.y));
+        animator.SetFloat("Speed", move.magnitude);
         //animator.SetFloat("horizontal", moveDirection.x);
         //animator.SetFloat("vertical", moveDirection.y);
-        animator.SetFloat("Speed", move.magnitude);
 
+    }
+    void FixedUpdate()
+    {
+        /*
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        
+        animator.SetFloat("horizontal", horizontal);
+        animator.SetFloat("vertical", vertical);
+        */
+
+        //Debug.Log("move "+move);
         Vector2 position = (Vector2)rigidbody2d.position + move * movement_speed * Time.deltaTime;
 
         //Vector2 position = (Vector2)rigidbody2d.position + move * 5.0f * Time.deltaTime;
