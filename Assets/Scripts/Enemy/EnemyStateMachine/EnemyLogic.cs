@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Security.Cryptography;
-using UnityEditor;
 using UnityEngine;
 
 public class EnemyLogic : StateMachine
