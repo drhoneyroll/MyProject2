@@ -323,15 +323,17 @@ MonoBehaviour:
   distanceThreshold: 0.2
   observeTimeMin: 0.8
   observeTimeMax: 2
+  observeTime: 0
   rollSpeed: 6
-  damageOnCollision: 5
-  dmageOnRollCollision: 10
+  attackRollDamage: 10
+  collisionDamage: 5
   hitPushBackForce: 300
   speed: 3
   hitStunDuration: 0.4
   isPathfinding: 1
   inRange: 0
-  isHit: 0
+  isHit: 1
+  frameOffset: 4
   gizmoSize: {x: 0.1, y: 0.1, z: 0.1}
   animator: {fileID: 8373670870093987230}
   lastAttackPosition: {x: 0, y: 0, z: 0}

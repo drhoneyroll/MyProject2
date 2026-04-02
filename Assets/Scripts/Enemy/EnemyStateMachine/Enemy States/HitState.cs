@@ -17,7 +17,7 @@ public class HitState : State
         enemy.EnemyPushBackForce();
         enemy.isPathfinding = false;
         enemy.transform.gameObject.layer = LayerMask.NameToLayer("Default");
-        enemy.HitStunOn(enemy.observeState);
+        enemy.HitStunOn();
     }
 
     public override void Exit()

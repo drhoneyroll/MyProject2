@@ -32,7 +32,9 @@ public class ChaseState : State
             enemy.ChangeState(enemy.observeState);
         }
 
-        if (Vector3.Distance(enemy.attackPostion.position, enemy.lastAttackPosition) > enemy.distanceThreshold)
+        Vector3 delta = enemy.attackPostion.position - enemy.lastAttackPosition;
+
+        if (delta.sqrMagnitude > enemy.sqrDistanceThreshold)
         {
             PathRequestManager.RequestPath(new PathRequest(enemy.transform.position, enemy.attackPostion.position, enemy.OnPathFound)); 
             enemy.lastAttackPosition = enemy.attackPostion.position;

@@ -16,10 +16,12 @@ public class PlayerAttack_improvment : MonoBehaviour
     public bool ShouldBeDamaging {get; private set; } = false;
     private float attackTimeCounter;
     private List<HealthSystem> iDamageables = new List<HealthSystem>();
+    public AudioManager audioManager;
 
     void Awake()
     {
         inputAction.Enable();
+        audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     private void Start()
@@ -41,7 +43,7 @@ public class PlayerAttack_improvment : MonoBehaviour
 
     public void Attack()
     {
-        anim.SetBool("IsAttacking",true);      
+        anim.SetBool("IsAttacking",true);     
     }
 
     public void FinishAttacking()
@@ -69,7 +71,7 @@ public class PlayerAttack_improvment : MonoBehaviour
 
             if(enemyLogic != null)
             {
-                enemyLogic.HitEnemy(enemyLogic.hitState);
+                enemyLogic.HitEnemy();
             }
         }
     }
@@ -77,6 +79,7 @@ public class PlayerAttack_improvment : MonoBehaviour
     public IEnumerator DamageWhileSlashIsActive()
     {
         ShouldBeDamaging = true;
+        audioManager.PlaySFX(audioManager.punch); 
         while(ShouldBeDamaging)
         {
             //Debug.Log("Im in while loop");
@@ -97,7 +100,7 @@ public class PlayerAttack_improvment : MonoBehaviour
 
                 if(enemyLogic != null)
                 {
-                    enemyLogic.HitEnemy(enemyLogic.hitState);
+                    enemyLogic.HitEnemy();
                 }
 
             }

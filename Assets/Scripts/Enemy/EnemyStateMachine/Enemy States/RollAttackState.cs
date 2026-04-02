@@ -11,13 +11,13 @@ public class RollAttackState : State
     {   
     }
     
-    float changeTimer = 3;
+    float changeTimer = 1;
 
     public override void Enter()
     {
         base.Enter();
         enemy.isPathfinding = true;
-        changeTimer = 3;
+        changeTimer = 1;
         Debug.Log("Roll Attack State");
         PathRequestManager.RequestPath(new PathRequest(enemy.transform.position, enemy.attackPostion.transform.position, enemy.OnRollPathFound)); 
     }
