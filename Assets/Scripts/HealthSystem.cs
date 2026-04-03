@@ -4,6 +4,8 @@ public class HealthSystem : MonoBehaviour, IDamageable
 {
     [SerializeField] float maxHeatlh;
     [SerializeField] float currentHealth;
+
+    public GameManagerScript gameManager;
     public bool HasTakenDamage {get; set;}
 
     void Awake()
@@ -40,5 +42,6 @@ public class HealthSystem : MonoBehaviour, IDamageable
     {
         //Invoke Event Manager ; Do Some Behavior
         Destroy(this.gameObject);
+        gameManager.gameOver();
     }
 }
