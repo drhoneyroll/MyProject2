@@ -73,6 +73,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5629793227960012276, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
+      propertyPath: collisionDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629793227960012276, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: hitPushBackForce
       value: 200
       objectReference: {fileID: 0}

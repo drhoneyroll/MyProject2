@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5629793227960012276, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: rollSpeed
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5629793227960012276, guid: 17eae07494074cc4f90a81e722edbb91, type: 3}
       propertyPath: observeTimeMax

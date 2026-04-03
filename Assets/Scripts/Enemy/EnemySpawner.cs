@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Threading;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -12,10 +11,13 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private float _timeUntilSpawn;
 
+    EnemyManager enemyManager;
+
     private float timer = 0;
 
     void Awake()
     {
+        enemyManager = FindAnyObjectByType<EnemyManager>();
         SetTimeUntilSpawn();
     }
 
@@ -50,7 +52,8 @@ public class EnemySpawner : MonoBehaviour
         */
         if (_timeUntilSpawn <= 0)
         {
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            enemyManager.agents.Add(enemy.GetComponent<EnemyLogic>());
             SetTimeUntilSpawn();
         }
     }

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Diagnostics;
 using UnityEngine;
 
 public class EnemyLogic : StateMachine
@@ -86,7 +85,7 @@ public class EnemyLogic : StateMachine
 
     void Update()
     {
-        Tick();
+        //Tick();
     }
 
     public void Tick()
@@ -169,10 +168,6 @@ public class EnemyLogic : StateMachine
 
     IEnumerator FollowPath(float speed)
     {
-        /*if (path == null || path.Length == 0)
-        {
-            yield break;
-        } */
 
         Vector3 currentWaypoint = path[0];
         targetIndex = 0;

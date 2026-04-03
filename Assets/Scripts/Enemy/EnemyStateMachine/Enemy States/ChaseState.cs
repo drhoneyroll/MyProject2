@@ -14,7 +14,6 @@ public class ChaseState : State
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Chasing!");
     }
 
     public override void Exit()
@@ -23,6 +22,8 @@ public class ChaseState : State
         enemy.StopFollowPath();
     }
 
+    Vector3 delta;
+    
     public override void LogicUpdate()
     {
         base.LogicUpdate();   
@@ -32,8 +33,7 @@ public class ChaseState : State
             enemy.ChangeState(enemy.observeState);
         }
 
-        Vector3 delta = enemy.attackPostion.position - enemy.lastAttackPosition;
-
+        delta = enemy.attackPostion.position - enemy.lastAttackPosition;
         if (delta.sqrMagnitude > enemy.sqrDistanceThreshold)
         {
             PathRequestManager.RequestPath(new PathRequest(enemy.transform.position, enemy.attackPostion.position, enemy.OnPathFound)); 
@@ -43,6 +43,7 @@ public class ChaseState : State
 
     public override void PhysicsUpdate()
     {
+
         base.PhysicsUpdate();
     }      
 

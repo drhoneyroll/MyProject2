@@ -321,6 +321,7 @@ MonoBehaviour:
   target: {fileID: 5589759164205104565, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
   attackPostion: {fileID: 5589759164205104565, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
   distanceThreshold: 0.2
+  sqrDistanceThreshold: 0
   observeTimeMin: 0.8
   observeTimeMax: 2
   observeTime: 0
@@ -333,7 +334,7 @@ MonoBehaviour:
   isPathfinding: 1
   inRange: 0
   isHit: 1
-  frameOffset: 4
+  frameOffset: 2
   gizmoSize: {x: 0.1, y: 0.1, z: 0.1}
   animator: {fileID: 8373670870093987230}
   lastAttackPosition: {x: 0, y: 0, z: 0}
