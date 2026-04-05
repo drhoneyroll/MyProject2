@@ -15,18 +15,22 @@ public class EnemyLogic : StateMachine
     [SerializeField] private float observeTimeMin = 0.8f;
     [SerializeField] private float observeTimeMax = 2f;
     [SerializeField] private float observeTime;
+
     [Header("Attack Roll")]
     [SerializeField] private float rollSpeed = 8f;
     [SerializeField] private int attackRollDamage = 10;
+
     [Header("General")]
     [SerializeField] private int collisionDamage = 5;
     [SerializeField] private float hitPushBackForce = 300f;
     [SerializeField] private float speed = 3f;
     [SerializeField] private float hitStunDuration = 0.4f;
+
     [Header("Booleans Debug")]
     public bool isPathfinding = true;
     public bool inRange = false;
     public bool isHit = false;
+
     [Header("Optimizations")]
     [SerializeField] int frameOffset;
 
@@ -74,6 +78,18 @@ public class EnemyLogic : StateMachine
         hitState = new HitState(this,"hit");
         target = FindAnyObjectByType<PlayerController>().transform;
         attackPostion = FindAnyObjectByType<PlayerController>().transform;
+    }
+
+    void OnEnable()
+    {
+        transform.gameObject.layer = LayerMask.NameToLayer("Attackable");
+        Initilize(chaseState);
+    }
+
+    void OnDisable()
+    {
+        isHit = false;
+        inRange = false;
     }
 
     void Start()
@@ -246,7 +262,8 @@ public class EnemyLogic : StateMachine
         if(hitStun != null)
             StopCoroutine(HitStun());
 
-        hitStun = StartCoroutine(HitStun());
+        if(gameObject.activeSelf)
+            hitStun = StartCoroutine(HitStun());
     }
 
     IEnumerator HitStun()

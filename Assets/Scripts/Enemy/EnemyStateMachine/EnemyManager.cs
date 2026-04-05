@@ -34,7 +34,7 @@ public class EnemyManager : MonoBehaviour
         for (int i = 0; i < agents.Count; i++)
         {
 
-            if(agents[i] == null)
+            if(agents[i] != enabled)
             {
                 agents.Remove(agents[i]);
                 continue;

@@ -53,18 +53,15 @@ public class PlayerAttack_improvment : MonoBehaviour
 
     public void ActivateSlashDamage()
     {
-        Debug.Log("SLashing");
         hits = Physics2D.CircleCastAll(attackTransform.position, attackRange, transform.right, 0f, attackableLayer);
 
-        for (int i = 0; i < hits.Length; i++) //vrti kroz sve targete zahvacene CircleCastom
+        for (int i = 0; i < hits.Length; i++)
         {
-            Debug.Log("Iteracija for petlje"+i+' '+hits.Length);
             HealthSystem iDamageable = hits[i].collider.gameObject.GetComponent<HealthSystem>();
             EnemyLogic enemyLogic = hits[i].collider.gameObject.GetComponent<EnemyLogic>();       
 
             if (iDamageable != null && !iDamageable.HasTakenDamage)
             {
-                Debug.Log("Damage?");
                 iDamageable.Damage(damageAmount);
                 iDamageables.Add(iDamageable);
             }
@@ -93,7 +90,6 @@ public class PlayerAttack_improvment : MonoBehaviour
 
                 if (iDamageable != null && !iDamageable.HasTakenDamage)
                 {
-                    Debug.Log("Damage?");
                     iDamageable.Damage(damageAmount);
                     iDamageables.Add(iDamageable);
                 }
@@ -104,7 +100,6 @@ public class PlayerAttack_improvment : MonoBehaviour
                 }
 
             }
-            Debug.Log("Should Be Damaging: "+ ShouldBeDamaging);
             yield return null; //wait for one more frame (game will freeze without this)
         }
 
@@ -116,9 +111,9 @@ public class PlayerAttack_improvment : MonoBehaviour
         Debug.Log("ReturnAttackablesToDamageable");
         foreach (HealthSystem thingThatWasDamaged in iDamageables)
         {
-            Debug.Log("thingThatWasDamaged: " + thingThatWasDamaged + " " + thingThatWasDamaged.HasTakenDamage);
+            //Debug.Log("thingThatWasDamaged: " + thingThatWasDamaged + " " + thingThatWasDamaged.HasTakenDamage);
             thingThatWasDamaged.HasTakenDamage = false;
-            Debug.Log("thingThatWasDamaged: " + thingThatWasDamaged + " " + thingThatWasDamaged.HasTakenDamage);
+           // Debug.Log("thingThatWasDamaged: " + thingThatWasDamaged + " " + thingThatWasDamaged.HasTakenDamage);
         }
 
         iDamageables.Clear();

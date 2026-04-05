@@ -1,12 +1,22 @@
 using UnityEngine;
+using System;
 
 public class HealthSystem : MonoBehaviour, IDamageable
 {
     [SerializeField] float maxHeatlh;
     [SerializeField] float currentHealth;
-    public bool HasTakenDamage {get; set;}
+    public bool HasTakenDamage { get; set;}
+    public static event Action onPlayerDeath;
+    public static event Action<Transform> onEnemyDeath;
+
+    public
 
     void Awake()
+    {
+        InitializeHealth();
+    }
+
+    void OnEnable()
     {
         InitializeHealth();
     }
@@ -32,13 +42,16 @@ public class HealthSystem : MonoBehaviour, IDamageable
         currentHealth = Mathf.Clamp(currentHealth - damageAmount,0, maxHeatlh);
         if(currentHealth <= 0)
         {
-           OnDeath();
-        }
-    }
+            if (transform.CompareTag("Player"))
+            {
+                //Player Death
+                onPlayerDeath?.Invoke();
+                return;
+            }
 
-    void OnDeath()
-    {
-        //Invoke Event Manager ; Do Some Behavior
-        Destroy(this.gameObject);
+            //On Enemy Death Logic
+            onEnemyDeath?.Invoke(transform);
+            
+        }
     }
 }

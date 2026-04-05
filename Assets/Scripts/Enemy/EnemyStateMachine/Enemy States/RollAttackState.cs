@@ -18,7 +18,6 @@ public class RollAttackState : State
         base.Enter();
         enemy.isPathfinding = true;
         changeTimer = 1;
-        Debug.Log("Roll Attack State");
         PathRequestManager.RequestPath(new PathRequest(enemy.transform.position, enemy.attackPostion.transform.position, enemy.OnRollPathFound)); 
     }
 

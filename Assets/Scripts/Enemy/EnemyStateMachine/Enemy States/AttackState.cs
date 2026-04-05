@@ -14,7 +14,6 @@ public class AttackState : State
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Attacking!");
     }
 
     public override void Exit()

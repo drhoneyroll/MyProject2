@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _maximumSpawnTime;
 
     [SerializeField] private float _timeUntilSpawn;
+    private ObjectPool objectPool;
 
     EnemyManager enemyManager;
 
@@ -18,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
     void Awake()
     {
         enemyManager = FindAnyObjectByType<EnemyManager>();
+        objectPool = GetComponent<ObjectPool>();
         SetTimeUntilSpawn();
     }
 
@@ -52,7 +54,8 @@ public class EnemySpawner : MonoBehaviour
         */
         if (_timeUntilSpawn <= 0)
         {
-            GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            GameObject enemy = objectPool.GetObject();
+            enemy.transform.position = transform.position;
             enemyManager.agents.Add(enemy.GetComponent<EnemyLogic>());
             SetTimeUntilSpawn();
         }

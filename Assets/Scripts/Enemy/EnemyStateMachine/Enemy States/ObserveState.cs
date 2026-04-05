@@ -14,7 +14,6 @@ public class ObserveState : State
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Observing!");
         enemy.StartObserve();
     }
 
