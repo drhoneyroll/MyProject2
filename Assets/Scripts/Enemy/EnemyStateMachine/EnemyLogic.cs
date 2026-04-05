@@ -90,6 +90,7 @@ public class EnemyLogic : StateMachine
     {
         isHit = false;
         inRange = false;
+        StopAllCoroutines();
     }
 
     void Start()
@@ -106,8 +107,6 @@ public class EnemyLogic : StateMachine
 
     public void Tick()
     {
-        if(Time.frameCount % 5 != frameOffset) return;
-
         inRange = enemyRange.inRange;
         if(transform.position.x < target.transform.position.x) 
         {
