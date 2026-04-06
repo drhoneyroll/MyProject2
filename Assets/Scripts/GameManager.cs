@@ -38,12 +38,10 @@ public class GameManager : MonoBehaviour
     {
         audioManager = FindAnyObjectByType<AudioManager>();
         //OnScene Load Do Something
-
     }
 
     public void OnEnemyDeath(Transform transform)
     {
-        Debug.Log("Enemy");
         GameObject vfx = deathVFX.GetObject();
         vfx.transform.position = transform.position;
         audioManager.PlaySFX(audioManager.death);
