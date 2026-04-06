@@ -5,9 +5,7 @@ public class CollectibleSpawner : MonoBehaviour
     [SerializeField] GameObject collectiblePrefab;
 
     [SerializeField] private float _minimumSpawnTime = 10;
-
     [SerializeField] private float _maximumSpawnTime = 15;
-
     [SerializeField] private float _timeUntilSpawn;
 
     //private GameObject[] spawnPoints;
@@ -22,7 +20,6 @@ public class CollectibleSpawner : MonoBehaviour
         //spawnPoints = transform.parent.GetComponentsInChildren<Transform>(true);
         
         spawnPoints = GetComponentsInChildren<Transform>(true);
-        Debug.Log(spawnPoints);
     }
 
     void Update()
