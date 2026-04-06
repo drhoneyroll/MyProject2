@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     ObjectPool deathVFX;
     AudioManager audioManager;
+
     
     void Awake()
     {
@@ -46,14 +47,16 @@ public class GameManager : MonoBehaviour
         vfx.transform.position = transform.position;
         audioManager.PlaySFX(audioManager.death);
         transform.GetComponentInParent<ObjectPool>().ReturnObject(transform.gameObject);
-
+        ScoreManager.instance.AddPoint(10);
         //Score System
 
     }
 
     public void OnPlayerDeath()
     {
+        GameObject vfx = deathVFX.GetObject();
+        audioManager.PlaySFX(audioManager.death);
         //Game Over
-        SceneManager.LoadScene("Game_Level");
+        //SceneManager.LoadScene("Game_Level");
     }
 }

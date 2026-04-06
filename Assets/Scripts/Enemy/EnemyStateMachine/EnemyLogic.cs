@@ -61,6 +61,8 @@ public class EnemyLogic : StateMachine
     IDamageable targetIDamageble;
     #endregion
 
+    AudioManager audioManager;
+
     void Awake()
     {
         spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>(); 
@@ -79,6 +81,7 @@ public class EnemyLogic : StateMachine
         hitState = new HitState(this,"hit");
         target = FindAnyObjectByType<PlayerController>().transform;
         attackPostion = FindAnyObjectByType<PlayerController>().transform;
+        audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     void OnEnable()
@@ -147,7 +150,11 @@ public class EnemyLogic : StateMachine
                 if(collision.collider == targetCircleCollider2d)
                 {
                     targetIDamageble.Damage(collisionDamage);
-                    playerBar.Change(-collisionDamage);
+                    playerBar.Change(-collisionDamage);               
+                }
+                else
+                {
+                    audioManager.PlaySFX(audioManager.block);
                 }
                 EnemyPushBackForce();
             }

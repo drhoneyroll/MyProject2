@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using NUnit.Framework.Constraints;
 
 public class HealthSystem : MonoBehaviour, IDamageable
 {
@@ -8,6 +9,8 @@ public class HealthSystem : MonoBehaviour, IDamageable
     public bool HasTakenDamage { get; set;}
     public static event Action onPlayerDeath;
     public static event Action<Transform> onEnemyDeath;
+
+    public GameObject game_over_screen;
 
     public
 
@@ -46,6 +49,7 @@ public class HealthSystem : MonoBehaviour, IDamageable
             {
                 //Player Death
                 onPlayerDeath?.Invoke();
+                game_over_screen.SetActive(true);
                 return;
             }
 
