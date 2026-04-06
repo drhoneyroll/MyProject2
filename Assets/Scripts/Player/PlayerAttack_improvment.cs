@@ -79,12 +79,10 @@ public class PlayerAttack_improvment : MonoBehaviour
         audioManager.PlaySFX(audioManager.punch); 
         while(ShouldBeDamaging)
         {
-            //Debug.Log("Im in while loop");
             hits = Physics2D.CircleCastAll(attackTransform.position, attackRange, transform.right, 0f, attackableLayer);
 
             for (int i = 0; i < hits.Length; i++) //vrti kroz sve targete zahvacene CircleCastom
             {
-                //Debug.Log("Iteracija for petlje" + i +' '+hits.Length);
                 HealthSystem iDamageable = hits[i].collider.gameObject.GetComponent<HealthSystem>();
                 EnemyLogic enemyLogic = hits[i].collider.gameObject.GetComponent<EnemyLogic>();       
 
@@ -108,12 +106,9 @@ public class PlayerAttack_improvment : MonoBehaviour
 
     public void ReturnAttackablesToDamageable()
     {
-        Debug.Log("ReturnAttackablesToDamageable");
         foreach (HealthSystem thingThatWasDamaged in iDamageables)
         {
-            //Debug.Log("thingThatWasDamaged: " + thingThatWasDamaged + " " + thingThatWasDamaged.HasTakenDamage);
             thingThatWasDamaged.HasTakenDamage = false;
-           // Debug.Log("thingThatWasDamaged: " + thingThatWasDamaged + " " + thingThatWasDamaged.HasTakenDamage);
         }
 
         iDamageables.Clear();
