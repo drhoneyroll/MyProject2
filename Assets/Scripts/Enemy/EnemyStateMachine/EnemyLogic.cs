@@ -26,16 +26,17 @@ public class EnemyLogic : StateMachine
     [SerializeField] private float speed = 3f;
     [SerializeField] private float hitStunDuration = 0.4f;
 
-    [Header("Booleans Debug")]
-    public bool isPathfinding = true;
-    public bool inRange = false;
-    public bool isHit = false;
-
     [Header("Optimizations")]
     [SerializeField] int frameOffset;
 
     [Header("Debug")]
     [SerializeField] Vector3 gizmoSize = Vector3.one;
+    public float unstuckTimer = 1;
+    [Header("Booleans Debug")]
+    public bool isPathfinding = true;
+    public bool inRange = false;
+    public bool isHit = false;
+
     [HideInInspector] public Animator animator;
     [HideInInspector] public Vector3 lastAttackPosition;
     [HideInInspector] public Rigidbody2D rb2d;
@@ -126,24 +127,31 @@ public class EnemyLogic : StateMachine
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform == target.transform)
+        if(CurrentState == rollAttackState)
         {
-            isHit = true;
-            if(collision.collider == targetCircleCollider2d)
+            if (collision.transform == target.transform)
             {
-                if(CurrentState == rollAttackState)
+                if(collision.collider == targetCircleCollider2d)
                 {
                     targetIDamageble.Damage(attackRollDamage);
                     playerBar.Change(-attackRollDamage);
-                } 
-                else
+                }
+                isHit = true;
+                EnemyPushBackForce();
+            }
+        }
+        else
+        {
+            if (collision.transform == target.transform)
+            {
+                if(collision.collider == targetCircleCollider2d)
                 {
                     targetIDamageble.Damage(collisionDamage);
                     playerBar.Change(-collisionDamage);
                 }
+                EnemyPushBackForce();
             }
-            EnemyPushBackForce();
-        }    
+        }
     }
 
     public void EnemyPushBackForce()

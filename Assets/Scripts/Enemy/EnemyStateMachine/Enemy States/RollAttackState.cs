@@ -11,13 +11,13 @@ public class RollAttackState : State
     {   
     }
     
-    float changeTimer = 1;
+    float changeTimer;
 
     public override void Enter()
     {
         base.Enter();
         enemy.isPathfinding = true;
-        changeTimer = 1;
+        changeTimer = enemy.unstuckTimer;
         PathRequestManager.RequestPath(new PathRequest(enemy.transform.position, enemy.attackPostion.transform.position, enemy.OnRollPathFound)); 
     }
 
@@ -33,13 +33,14 @@ public class RollAttackState : State
         base.LogicUpdate();
         if (enemy.isHit || !enemy.isPathfinding)
         {
-            enemy.isPathfinding = false;
             enemy.ChangeState(enemy.observeState);
+            return;
         }
 
         if(changeTimer < 0.1)
         {
             enemy.ChangeState(enemy.observeState);
+            return;
         }
 
         changeTimer -= Time.deltaTime;

@@ -31,6 +31,7 @@ public class ChaseState : State
         if (enemy.inRange)
         {
             enemy.ChangeState(enemy.observeState);
+            return;
         }
 
         delta = enemy.attackPostion.position - enemy.lastAttackPosition;
@@ -43,7 +44,6 @@ public class ChaseState : State
 
     public override void PhysicsUpdate()
     {
-
         base.PhysicsUpdate();
     }      
 

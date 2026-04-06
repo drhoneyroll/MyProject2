@@ -20,6 +20,7 @@ public abstract class State
         DoChecks();
         enemy.animator.SetBool(AnimBoolName, true);
         startTime = 0;
+        enemy.StopAllCoroutines();
     }
 
     public virtual void LogicUpdate()
