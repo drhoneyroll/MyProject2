@@ -152,10 +152,6 @@ public class EnemyLogic : StateMachine
                     targetIDamageble.Damage(collisionDamage);
                     playerBar.Change(-collisionDamage);               
                 }
-                else
-                {
-                    audioManager.PlaySFX(audioManager.block);
-                }
                 EnemyPushBackForce();
             }
         }
