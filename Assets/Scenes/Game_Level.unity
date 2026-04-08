@@ -3723,6 +3723,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1156598635}
+    - target: {fileID: 747422969160416807, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1277971551294925426, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -3753,6 +3757,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2497476151221645227, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647573916393953690, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
+      propertyPath: m_MatchWidthOrHeight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2938825498546076623, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
@@ -3786,6 +3794,34 @@ PrefabInstance:
     - target: {fileID: 3792950163849176882, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895783928289732480, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895783928289732480, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895783928289732480, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 41.80603
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895783928289732480, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130099823584989214, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130099823584989214, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130099823584989214, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -112.00006
       objectReference: {fileID: 0}
     - target: {fileID: 5382472801288341240, guid: 083bd7127afeafc4db5dded7cc7f4a14, type: 3}
       propertyPath: m_Pivot.x
