@@ -17648,6 +17648,10 @@ PrefabInstance:
       propertyPath: game_over_screen
       value: 
       objectReference: {fileID: 1390176228}
+    - target: {fileID: 3852916502132790379, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3929609850095517698, guid: 59a8f5b59dc36c7449d7a2fef165784a, type: 3}
       propertyPath: m_SortingOrder
       value: 49
