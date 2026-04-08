@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -56,9 +55,14 @@ public class GameManager : MonoBehaviour
     public void OnPlayerDeath()
     {
         GameObject vfx = deathVFX.GetObject();
-        audioManager.PlaySFX(audioManager.death);
-        Time.timeScale = 0;
+        audioManager.StopMuisc();
+        audioManager.PlaySFX(audioManager.game_over);
         //Game Over
         //SceneManager.LoadScene("Game_Level");
+    }
+
+    public void FreezeTime()
+    {
+        Time.timeScale = 0;
     }
 }
