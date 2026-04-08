@@ -11,8 +11,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip punch;
     public AudioClip death;
     public AudioClip game_over;
-    public AudioClip block;
+    public AudioClip roll_block;
     [SerializeField] public AudioClip health_pickup;
+    [SerializeField] public AudioClip roll_attack;
+    [SerializeField] public AudioClip roll_hit;
+    [SerializeField] public AudioClip game_over_death;
+    [SerializeField] public AudioClip constant_block;
     public void Start()
     {
         musicSource.clip = background;
