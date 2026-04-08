@@ -17,8 +17,6 @@ public class CollectibleSpawner : MonoBehaviour
     void Awake()
     {
         SetTimeUntilSpawn();
-        //spawnPoints = transform.parent.GetComponentsInChildren<Transform>(true);
-        
         spawnPoints = GetComponentsInChildren<Transform>(true);
     }
 
@@ -35,6 +33,5 @@ public class CollectibleSpawner : MonoBehaviour
     private void SetTimeUntilSpawn()
     {
         _timeUntilSpawn=Random.Range(_minimumSpawnTime, _maximumSpawnTime);
-        //_timeUntilSpawn=Mathf.Clamp(_timeUntilSpawn, 1f, 2f);
     }
 }
