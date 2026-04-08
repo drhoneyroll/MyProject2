@@ -54,9 +54,9 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerDeath()
     {
-        GameObject vfx = deathVFX.GetObject();
         audioManager.StopMuisc();
         audioManager.PlaySFX(audioManager.game_over);
+        Time.timeScale = 0;
         //Game Over
         //SceneManager.LoadScene("Game_Level");
     }
