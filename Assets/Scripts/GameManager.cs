@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         audioManager = FindAnyObjectByType<AudioManager>();
+        Time.timeScale = 1;
         //OnScene Load Do Something
     }
 
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
     {
         GameObject vfx = deathVFX.GetObject();
         audioManager.PlaySFX(audioManager.death);
+        Time.timeScale = 0;
         //Game Over
         //SceneManager.LoadScene("Game_Level");
     }

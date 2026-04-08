@@ -5,6 +5,16 @@ public class GameManagerScript : MonoBehaviour
 {
     public GameObject gameOverUI;
 
+    void OnEnable()
+    {
+        HealthSystem.onPlayerDeath += gameOver;
+    }
+
+    void OnDisable()
+    {
+        HealthSystem.onPlayerDeath -= gameOver;
+    }
+
     public void gameOver ()
     {
         gameOverUI.SetActive(true);

@@ -10,8 +10,6 @@ public class HealthSystem : MonoBehaviour, IDamageable
     public static event Action onPlayerDeath;
     public static event Action<Transform> onEnemyDeath;
 
-    public GameObject game_over_screen;
-
     public
 
     void Awake()
@@ -49,7 +47,6 @@ public class HealthSystem : MonoBehaviour, IDamageable
             {
                 //Player Death
                 onPlayerDeath?.Invoke();
-                game_over_screen.SetActive(true);
                 return;
             }
 
