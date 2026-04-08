@@ -49,10 +49,11 @@ MonoBehaviour:
   musicSource: {fileID: 190735227451524738}
   SFXSource: {fileID: 2605604201166898263}
   background: {fileID: 8300000, guid: aff07b1e9489f43388b5344402878dbc, type: 3}
-  punch: {fileID: 8300000, guid: 39d95322e08d84fc88a217e689779f38, type: 3}
-  death: {fileID: 8300000, guid: 07c8c6970cafb486785f35942b7fbe7c, type: 3}
-  game_over: {fileID: 8300000, guid: 1dc177c9d0d8347d0b0a178593807e77, type: 3}
+  punch: {fileID: 8300000, guid: 51ed8431de13e5d4292c4df0aad9a4ba, type: 3}
+  death: {fileID: 8300000, guid: 76efc0691aee62843ab90a2050e0377b, type: 3}
+  game_over: {fileID: 8300000, guid: 870d60e957f5db44eb2663db4514ab08, type: 3}
   block: {fileID: 8300000, guid: 3907b9a66967648e0bd353f41fa2b1e5, type: 3}
+  health_pickup: {fileID: 8300000, guid: 4810b5971951446d2ba39f367a2dc2d6, type: 3}
 --- !u!1 &2085876608984586652
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +99,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -225,11 +226,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: aff07b1e9489f43388b5344402878dbc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

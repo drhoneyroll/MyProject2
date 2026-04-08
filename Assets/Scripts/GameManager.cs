@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     {
         HealthSystem.onEnemyDeath += OnEnemyDeath;
         HealthSystem.onPlayerDeath += OnPlayerDeath;
+        Coins.onPickUp += OnCoinPickUp;
         deathVFX = GetComponent<ObjectPool>();
     }
 
@@ -61,8 +62,9 @@ public class GameManager : MonoBehaviour
         //SceneManager.LoadScene("Game_Level");
     }
 
-    public void FreezeTime()
+    public void OnCoinPickUp()
     {
-        Time.timeScale = 0;
+        ScoreManager.instance.AddPoint(50);
+        audioManager.PlaySFX(audioManager.health_pickup);
     }
 }
