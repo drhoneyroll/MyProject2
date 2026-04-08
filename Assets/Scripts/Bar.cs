@@ -29,13 +29,13 @@ public class Bar : MonoBehaviour
     private float TargetWidth => Value * _fullWidth / MaxValue;
     
     private Coroutine _adjustBarWidthCoroutine;
-
-    GameObject instance;
+    HealthSystem playerHealth;
 
     public void Start()
     {
         //_fullWidth=_topBar.rect.width; //ovde je neki problem, nece da uzme topBar width, stavi ga na 0
-        MaxValue = GetComponentInParent<HealthSystem>().GetHealth();
+        playerHealth = FindAnyObjectByType<PlayerController>().GetComponent<HealthSystem>();
+        MaxValue = playerHealth.GetHealth();
         Value = MaxValue;
     }
 
@@ -47,16 +47,16 @@ public class Bar : MonoBehaviour
             //TargetWidth=_fullWidth * (80/100);
             //_fullWidth=_fullWidth * (80/100);
             Change(20);
-            Debug.Log("Damage!");
-            GetComponentInParent<IDamageable>().Heal(20);
+            Debug.Log("Heal!");
+            playerHealth.Heal(20);
         }
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
             //TargetWidth=_fullWidth * (120/100);
             //_fullWidth=_fullWidth * (120/100);
             Change(-20);
-            Debug.Log("Heal!");
-            GetComponentInParent<IDamageable>().Damage(20);
+            Debug.Log("Damage!");
+            playerHealth.Damage(20);
         }
     }
 

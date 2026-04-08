@@ -138,6 +138,12 @@ public class EnemyLogic : StateMachine
                 {
                     targetIDamageble.Damage(attackRollDamage);
                     playerBar.Change(-attackRollDamage);
+                    //Udario je Igraca
+                }
+                else
+                {
+                    //Udario je Stit
+                    
                 }
                 isHit = true;
                 EnemyPushBackForce();
