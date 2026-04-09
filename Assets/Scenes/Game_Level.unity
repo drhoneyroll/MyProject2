@@ -3008,7 +3008,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 675148531}
+    TrackingTarget: {fileID: 950738555}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -4425,11 +4425,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5299163, y: 1.4173617}
   m_EdgeRadius: 0
---- !u!4 &675148531 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7833101611766084242, guid: 70e1e15b5da307c4f8e916a5d19eb1c9, type: 3}
-  m_PrefabInstance: {fileID: 1055879524279356100}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &682103942
 GameObject:
   m_ObjectHideFlags: 0
@@ -23979,6 +23974,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 3}
   m_EdgeRadius: 0
+--- !u!4 &950738555 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5411014322107770719, guid: 70e1e15b5da307c4f8e916a5d19eb1c9, type: 3}
+  m_PrefabInstance: {fileID: 1055879524279356100}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &963151097
 PrefabInstance:
   m_ObjectHideFlags: 0
