@@ -16,6 +16,7 @@ public class RollAttackState : State
     public override void Enter()
     {
         base.Enter();
+        enemy.audioManager.PlaySFX(enemy.audioManager.roll_attack);
         enemy.isPathfinding = true;
         changeTimer = enemy.unstuckTimer;
         //Start Roll Zvuk ovde
