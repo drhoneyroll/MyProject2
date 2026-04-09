@@ -19,6 +19,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioClip game_over_death;
     [SerializeField] public AudioClip constant_block;
 
+    [SerializeField] public AudioClip coin_pickup;
+
     [SerializeField] public float background_volume;
     [SerializeField] public float punch_volume;
     [SerializeField] public float death_volume;
@@ -29,6 +31,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public float roll_hit_volume;
     [SerializeField] public float game_over_death_volume;
     [SerializeField] public float constant_block_volume;
+
+    [SerializeField] public float coin_pickup_volume;
 
     private float volume;
 
@@ -88,6 +92,10 @@ public class AudioManager : MonoBehaviour
         else if (clip == constant_block)
         {
             volume = constant_block_volume;
+        }
+        else if (clip == coin_pickup)
+        {
+            volume = coin_pickup_volume;
         }
         SFXSource.PlayOneShot(clip, volume);
     }
