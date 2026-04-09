@@ -1,9 +1,8 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] AudioSource musicSource;
+    public AudioSource musicSource;
 
     [SerializeField] AudioSource SFXSource;
 
@@ -52,7 +51,7 @@ public class AudioManager : MonoBehaviour
     }
     public void PlaySFX (AudioClip clip)
     {
-        
+        //Use Switch Statement
         if (clip == punch)
         {
             volume = punch_volume;
