@@ -58,6 +58,7 @@ public class EnemyLogic : StateMachine
 
     #region  Cache Values
     public CircleCollider2D targetCircleCollider2d;
+    CapsuleCollider2D capsuleCollider2D;
     IDamageable targetIDamageble;
     #endregion
 
@@ -73,6 +74,7 @@ public class EnemyLogic : StateMachine
         target = FindAnyObjectByType<PlayerController>().transform;
         attackPostion = FindAnyObjectByType<PlayerController>().transform;
         targetCircleCollider2d = target.GetComponent<CircleCollider2D>();
+        capsuleCollider2D = target.GetComponent<CapsuleCollider2D>();
         targetIDamageble = target.GetComponent<IDamageable>();
 
         chaseState = new ChaseState(this,"chase");
@@ -141,7 +143,7 @@ public class EnemyLogic : StateMachine
                     playerBar.Change(-attackRollDamage);
                     //Udario je Igraca
                 }
-                else
+                else if (collision.collider == capsuleCollider2D)
                 {
                     audioManager.PlaySFX(audioManager.roll_block);
                 }

@@ -331,15 +331,18 @@ MonoBehaviour:
   hitPushBackForce: 300
   speed: 3
   hitStunDuration: 0.4
+  frameOffset: 2
+  gizmoSize: {x: 0.1, y: 0.1, z: 0.1}
+  unstuckTimer: 1
   isPathfinding: 1
   inRange: 0
   isHit: 1
-  frameOffset: 2
-  gizmoSize: {x: 0.1, y: 0.1, z: 0.1}
   animator: {fileID: 8373670870093987230}
   lastAttackPosition: {x: 0, y: 0, z: 0}
   rb2d: {fileID: 0}
   playerBar: {fileID: 0}
+  targetCircleCollider2d: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &4345313167251746955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,21 +357,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
   maxHeatlh: 3
   currentHealth: 0
-  onDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 102900000, guid: 2ac8cf212df6445e8aebbe3cb832e993, type: 3}
-        m_TargetAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &6937427820390400623
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +406,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
