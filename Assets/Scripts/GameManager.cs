@@ -75,7 +75,7 @@ void OnDisable()
     public void OnCoinPickUp()
     {
         ScoreManager.instance.AddPoint(50);
-        audioManager.PlaySFX(audioManager.health_pickup);
+        audioManager.PlaySFX(audioManager.coin_pickup);
     }
 
 }

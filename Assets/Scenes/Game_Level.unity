@@ -28502,13 +28502,17 @@ PrefabInstance:
       value: Audio Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8131107151302800326, guid: e9601866c0e481a46a75ca43c94159e1, type: 3}
-      propertyPath: roll_block
+      propertyPath: coin_pickup
       value: 
-      objectReference: {fileID: 8300000, guid: 3907b9a66967648e0bd353f41fa2b1e5, type: 3}
+      objectReference: {fileID: 8300000, guid: b0b11dcf87a9544be87dcc8e7b6e13c3, type: 3}
     - target: {fileID: 8131107151302800326, guid: e9601866c0e481a46a75ca43c94159e1, type: 3}
-      propertyPath: roll_attack
+      propertyPath: health_pickup
       value: 
-      objectReference: {fileID: 8300000, guid: 854fa7e18326a472db0df6c83381c7b1, type: 3}
+      objectReference: {fileID: 8300000, guid: 5662835f9ea8e46a6aced93a46e17a3b, type: 3}
+    - target: {fileID: 8131107151302800326, guid: e9601866c0e481a46a75ca43c94159e1, type: 3}
+      propertyPath: coin_pickup_volume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
