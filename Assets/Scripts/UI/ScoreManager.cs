@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -19,7 +18,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         highscore = PlayerPrefs.GetInt("highscore", 0);
-        scoreText.text = score.ToString() + " POINTS";
+        scoreText.text = "POINTS " +score.ToString();
         highscoreText.text = "HIGHSCORE: " + highscore.ToString();
     }
 
@@ -27,7 +26,7 @@ public class ScoreManager : MonoBehaviour
     public void AddPoint(int points)
     {
         score += points;
-        scoreText.text = score.ToString() + " POINTS";
+        scoreText.text = "POINTS " + score.ToString();
         if (highscore < score)
             PlayerPrefs.SetInt("highscore", score);
     }

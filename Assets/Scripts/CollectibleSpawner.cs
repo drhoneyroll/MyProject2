@@ -7,17 +7,18 @@ public class CollectibleSpawner : MonoBehaviour
     [SerializeField] private float _minimumSpawnTime = 10;
     [SerializeField] private float _maximumSpawnTime = 15;
     [SerializeField] private float _timeUntilSpawn;
+    ObjectPool objectPool;
 
-    //private GameObject[] spawnPoints;
-    public GameObject spawner;
     private Transform randomPosition;
 
+    [SerializeField] Transform spawnContainer;
     Transform[] spawnPoints;
 
     void Awake()
     {
         SetTimeUntilSpawn();
-        spawnPoints = GetComponentsInChildren<Transform>(true);
+        spawnPoints = spawnContainer.GetComponentsInChildren<Transform>(true);
+        objectPool = GetComponent<ObjectPool>();
     }
 
     void Update()
@@ -26,7 +27,8 @@ public class CollectibleSpawner : MonoBehaviour
         if (_timeUntilSpawn <= 0)
         {
             randomPosition = spawnPoints[Random.Range(0,spawnPoints.Length)];
-            Instantiate(collectiblePrefab, randomPosition.position, Quaternion.identity);
+            GameObject collectable = objectPool.GetObject();
+            collectable.transform.position = randomPosition.transform.position;
             SetTimeUntilSpawn();
         }
     }
