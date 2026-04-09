@@ -22,8 +22,7 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < agents.Count; i++)
         {
-
-            if(agents[i] != enabled)
+            if(!agents[i].gameObject.activeSelf)
             {
                 agents.Remove(agents[i]);
                 continue;

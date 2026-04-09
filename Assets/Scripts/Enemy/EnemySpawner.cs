@@ -6,15 +6,14 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
 
     [SerializeField] private float _minimumSpawnTime;
-
     [SerializeField] private float _maximumSpawnTime;
-
     [SerializeField] private float _timeUntilSpawn;
+
     private ObjectPool objectPool;
+    [SerializeField] private int maximumSpawnAmount;
+    [SerializeField] private int containerEnemyLimit;
 
     EnemyManager enemyManager;
-
-    private float timer = 0;
 
     void Awake()
     {
@@ -33,23 +32,24 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(15f);
-            //_minimumSpawnTime+=5;
             _maximumSpawnTime-=2.5f;
-            //Debug.Log("15 seconds have passed");
         }
     }
 
     void Update()
     {
         _timeUntilSpawn -=  Time.deltaTime;
-        timer+=Time.deltaTime;
 
         if (_timeUntilSpawn <= 0)
         {
-            GameObject enemy = objectPool.GetObject();
-            enemy.transform.position = transform.position;
-            enemyManager.agents.Add(enemy.GetComponent<EnemyLogic>());
-            SetTimeUntilSpawn();
+            if(enemyManager.agents.Count < maximumSpawnAmount)
+            {
+                GameObject enemy = objectPool.GetObject();
+                enemy.transform.position = transform.position;
+                enemyManager.agents.Add(enemy.GetComponent<EnemyLogic>());
+            }
+
+            SetTimeUntilSpawn();  
         }
     }
     private void SetTimeUntilSpawn()
