@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,12 +26,20 @@ public class GameManager : MonoBehaviour
     {
         HealthSystem.onEnemyDeath += OnEnemyDeath;
         HealthSystem.onPlayerDeath += OnPlayerDeath;
+        Coins.onPickUp += OnCoinPickUp;
         deathVFX = GetComponent<ObjectPool>();
     }
 
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        HealthSystem.onEnemyDeath -= OnEnemyDeath;
+        HealthSystem.onPlayerDeath -= OnPlayerDeath;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -56,11 +63,17 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerDeath()
     {
-        GameObject vfx = deathVFX.GetObject();
+        audioManager.musicSource.Stop();
         audioManager.PlaySFX(audioManager.game_over_death);
-        audioManager.GetComponentInChildren<AudioSource>().Stop();
+        Debug.Log("audio manager components: "+audioManager.GetComponentInChildren<AudioSource>());
         Time.timeScale = 0;
         //Game Over
         //SceneManager.LoadScene("Game_Level");
+    }
+
+    public void OnCoinPickUp()
+    {
+        ScoreManager.instance.AddPoint(50);
+        audioManager.PlaySFX(audioManager.health_pickup);
     }
 }
