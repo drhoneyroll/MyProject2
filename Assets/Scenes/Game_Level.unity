@@ -502,6 +502,7 @@ Transform:
   - {fileID: 659822620}
   - {fileID: 1150684489}
   - {fileID: 815613212}
+  - {fileID: 1882956981}
   - {fileID: 234198925}
   - {fileID: 1513913374}
   m_Father: {fileID: 1336426409}
@@ -5550,7 +5551,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.26937056, y: -2.9564824}
+  m_Offset: {x: -1.628078, y: -2.9564824}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5560,7 +5561,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 6.448167, y: 7.2079496}
+  m_Size: {x: 2.7458277, y: 7.2079496}
   m_EdgeRadius: 0
 --- !u!4 &815613212
 Transform:
@@ -30661,6 +30662,84 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!1 &1882956980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1882956981}
+  - component: {fileID: 1882956982}
+  m_Layer: 10
+  m_Name: Enter House (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1882956981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882956980}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.1, y: 7.7485204, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 36605032}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1882956982
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882956980}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -1.628078, y: -2.9564824}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.7458277, y: 7.2079496}
+  m_EdgeRadius: 0
 --- !u!1 &1889050804
 GameObject:
   m_ObjectHideFlags: 0
@@ -31965,7 +32044,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 395067717829562156, guid: 26403c3c27dff2f4f8b9b572eb90f30e, type: 3}
       propertyPath: maximumSpawnAmount
-      value: 100
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 395067717829562156, guid: 26403c3c27dff2f4f8b9b572eb90f30e, type: 3}
       propertyPath: containerEnemyLimit
@@ -32025,7 +32104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3394507061110476837, guid: 26403c3c27dff2f4f8b9b572eb90f30e, type: 3}
       propertyPath: maximumSpawnAmount
-      value: 100
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3394507061110476837, guid: 26403c3c27dff2f4f8b9b572eb90f30e, type: 3}
       propertyPath: containerEnemyLimit
@@ -32033,7 +32112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4006377073658028964, guid: 26403c3c27dff2f4f8b9b572eb90f30e, type: 3}
       propertyPath: maximumSpawnAmount
-      value: 100
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4006377073658028964, guid: 26403c3c27dff2f4f8b9b572eb90f30e, type: 3}
       propertyPath: containerEnemyLimit
@@ -32049,7 +32128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7730469324991601794, guid: 26403c3c27dff2f4f8b9b572eb90f30e, type: 3}
       propertyPath: maximumSpawnAmount
-      value: 100
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7730469324991601794, guid: 26403c3c27dff2f4f8b9b572eb90f30e, type: 3}
       propertyPath: containerEnemyLimit
