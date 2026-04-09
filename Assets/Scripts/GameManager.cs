@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         GameObject vfx = deathVFX.GetObject();
         vfx.transform.position = transform.position;
+        audioManager.StopSFX();
         audioManager.PlaySFX(audioManager.death);
         transform.GetComponentInParent<ObjectPool>().ReturnObject(transform.gameObject);
         ScoreManager.instance.AddPoint(10);
@@ -58,7 +59,6 @@ public class GameManager : MonoBehaviour
         GameObject vfx = deathVFX.GetObject();
         audioManager.PlaySFX(audioManager.game_over_death);
         audioManager.GetComponentInChildren<AudioSource>().Stop();
-        Debug.Log("audio manager components: "+audioManager.GetComponentInChildren<AudioSource>());
         Time.timeScale = 0;
         //Game Over
         //SceneManager.LoadScene("Game_Level");

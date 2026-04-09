@@ -143,11 +143,6 @@ public class EnemyLogic : StateMachine
                 }
                 else
                 {
-                    //Udario je Stit
-                    
-                }
-                else
-                {
                     audioManager.PlaySFX(audioManager.roll_block);
                 }
                 isHit = true;
