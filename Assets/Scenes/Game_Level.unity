@@ -26365,6 +26365,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: A_ Pathfinding
       objectReference: {fileID: 0}
+    - target: {fileID: 8435171658363626225, guid: a034e2f03202d7b4bb631d7989bc28e5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -10,7 +10,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip death;
     public AudioClip game_over;
     public AudioClip block;
-    [SerializeField] public AudioClip health_pickup;
+    public AudioClip rollAttackHit;
+    public AudioClip rollAttack;
+    public AudioClip health_pickup;
+    
     public void Start()
     {
         musicSource.clip = background;

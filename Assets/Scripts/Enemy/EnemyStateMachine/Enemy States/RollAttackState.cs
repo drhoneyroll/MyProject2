@@ -18,7 +18,8 @@ public class RollAttackState : State
         base.Enter();
         enemy.isPathfinding = true;
         changeTimer = enemy.unstuckTimer;
-        //Start Roll
+        //Start Roll Zvuk ovde
+        
         PathRequestManager.RequestPath(new PathRequest(enemy.transform.position, enemy.attackPostion.transform.position, enemy.OnRollPathFound)); 
     }
 
