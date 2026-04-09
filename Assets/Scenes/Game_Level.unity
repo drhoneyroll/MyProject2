@@ -25495,7 +25495,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.857143
+  orthographic size: 2.5142858
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -28446,10 +28446,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1149525289069180746, guid: e9601866c0e481a46a75ca43c94159e1, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f75f8d40d241e047a85c5eef65974a6, type: 3}
     - target: {fileID: 1768718729701748421, guid: e9601866c0e481a46a75ca43c94159e1, type: 3}
       propertyPath: m_Name
       value: Audio Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 8131107151302800326, guid: e9601866c0e481a46a75ca43c94159e1, type: 3}
+      propertyPath: constant_block
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f75f8d40d241e047a85c5eef65974a6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

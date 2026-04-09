@@ -36,7 +36,8 @@ public class AudioManager : MonoBehaviour
     public void Start()
     {
         musicSource.clip = background;
-        musicSource.volume=background_volume;
+        musicSource.volume = background_volume;
+        LoopingSFX.volume = constant_block_volume;
         musicSource.Play();
     }
 
