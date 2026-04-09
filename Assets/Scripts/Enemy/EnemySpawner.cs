@@ -11,7 +11,6 @@ public class EnemySpawner : MonoBehaviour
 
     private ObjectPool objectPool;
     [SerializeField] private int maximumSpawnAmount;
-    [SerializeField] private int containerEnemyLimit;
 
     EnemyManager enemyManager;
 
