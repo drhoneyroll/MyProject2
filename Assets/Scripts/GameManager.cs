@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,7 +7,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     ObjectPool deathVFX;
     AudioManager audioManager;
-
     
     void Awake()
     {
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        
         Instance = this;
         
         DontDestroyOnLoad(gameObject); 
@@ -28,20 +28,20 @@ public class GameManager : MonoBehaviour
         HealthSystem.onPlayerDeath += OnPlayerDeath;
         Coins.onPickUp += OnCoinPickUp;
         deathVFX = GetComponent<ObjectPool>();
+        
     }
+
 
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
-    void OnDisable()
+void OnDisable()
     {
         HealthSystem.onEnemyDeath -= OnEnemyDeath;
         HealthSystem.onPlayerDeath -= OnPlayerDeath;
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         audioManager = FindAnyObjectByType<AudioManager>();
@@ -53,10 +53,8 @@ public class GameManager : MonoBehaviour
     {
         GameObject vfx = deathVFX.GetObject();
         vfx.transform.position = transform.position;
-
-        audioManager.StopSFX();
+        //audioManager.StopSFX();
         audioManager.PlaySFX(audioManager.death);
-
         transform.GetComponentInParent<ObjectPool>().ReturnObject(transform.gameObject);
         ScoreManager.instance.AddPoint(10);
         //Score System
@@ -65,15 +63,19 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerDeath()
     {
-        audioManager.musicSource.Stop();
+        //GameObject vfx = deathVFX.GetObject();
+        //audioManager.StopSFX();
         audioManager.PlaySFX(audioManager.game_over_death);
+        audioManager.musicSource.Stop();
+        audioManager.enabled = false;
         Time.timeScale = 0;
         //Game Over
+        //SceneManager.LoadScene("Game_Level");
     }
-
     public void OnCoinPickUp()
     {
         ScoreManager.instance.AddPoint(50);
         audioManager.PlaySFX(audioManager.health_pickup);
     }
+
 }
