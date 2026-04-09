@@ -12,6 +12,9 @@ public class EnemySpawner : MonoBehaviour
     private ObjectPool objectPool;
     [SerializeField] private int maximumSpawnAmount;
 
+    [SerializeField] float difficulty_scale_rate = 0.5f;
+
+    [SerializeField] float difficulty_time = 10f;
     EnemyManager enemyManager;
 
     void Awake()
@@ -30,8 +33,8 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(15f);
-            _maximumSpawnTime-=2.5f;
+            yield return new WaitForSeconds(difficulty_time);
+            _maximumSpawnTime-=difficulty_scale_rate;
         }
     }
 
@@ -53,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private void SetTimeUntilSpawn()
     {
-        _maximumSpawnTime=Mathf.Clamp(_maximumSpawnTime, 1f, 60f);
+        _maximumSpawnTime=Mathf.Clamp(_maximumSpawnTime, _minimumSpawnTime, 60f);
         _timeUntilSpawn=Random.Range(_minimumSpawnTime, _maximumSpawnTime);
     }
 }
