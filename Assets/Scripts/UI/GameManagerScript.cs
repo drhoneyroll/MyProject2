@@ -4,6 +4,16 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     public GameObject gameOverUI;
+    public GameObject blackScreen;
+
+    public Animator animator;
+
+    public AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = FindAnyObjectByType<AudioManager>();
+    }
 
     void OnEnable()
     {
@@ -17,11 +27,13 @@ public class GameManagerScript : MonoBehaviour
 
     public void gameOver ()
     {
+        //blackScreen.SetActive(true);
         gameOverUI.SetActive(true);
     }
 
     public void restart ()
     {
+        audioManager.enabled = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
     }
 
