@@ -53,8 +53,10 @@ public class GameManager : MonoBehaviour
     {
         GameObject vfx = deathVFX.GetObject();
         vfx.transform.position = transform.position;
+
         audioManager.StopSFX();
         audioManager.PlaySFX(audioManager.death);
+
         transform.GetComponentInParent<ObjectPool>().ReturnObject(transform.gameObject);
         ScoreManager.instance.AddPoint(10);
         //Score System
@@ -65,10 +67,8 @@ public class GameManager : MonoBehaviour
     {
         audioManager.musicSource.Stop();
         audioManager.PlaySFX(audioManager.game_over_death);
-        Debug.Log("audio manager components: "+audioManager.GetComponentInChildren<AudioSource>());
         Time.timeScale = 0;
         //Game Over
-        //SceneManager.LoadScene("Game_Level");
     }
 
     public void OnCoinPickUp()

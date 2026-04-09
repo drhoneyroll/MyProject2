@@ -14,6 +14,9 @@ public class ChaseState : State
     public override void Enter()
     {
         base.Enter();
+
+        PathRequestManager.RequestPath(new PathRequest(enemy.transform.position, enemy.attackPostion.position, enemy.OnPathFound)); 
+        enemy.lastAttackPosition = enemy.attackPostion.position;
     }
 
     public override void Exit()

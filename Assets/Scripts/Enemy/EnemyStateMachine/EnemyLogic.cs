@@ -57,7 +57,7 @@ public class EnemyLogic : StateMachine
     #endregion
 
     #region  Cache Values
-    CircleCollider2D targetCircleCollider2d;
+    public CircleCollider2D targetCircleCollider2d;
     IDamageable targetIDamageble;
     #endregion
 

@@ -3,10 +3,16 @@ using UnityEngine;
 public class EnemyRange : MonoBehaviour
 {
     public bool inRange;
+    EnemyLogic enemyLogic;
+
+    void Start()
+    {
+        enemyLogic = GetComponentInParent<EnemyLogic>();
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision == enemyLogic.targetCircleCollider2d)
         {
             inRange = true;
         }
@@ -14,7 +20,7 @@ public class EnemyRange : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision == enemyLogic.targetCircleCollider2d)
         {
             inRange = false;
         }

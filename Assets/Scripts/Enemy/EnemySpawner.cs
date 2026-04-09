@@ -43,15 +43,7 @@ public class EnemySpawner : MonoBehaviour
     {
         _timeUntilSpawn -=  Time.deltaTime;
         timer+=Time.deltaTime;
-        //Debug.Log("Time "+timer+" moduo: "+(timer % 15));
-        /*
-        if (timer % 15 <= 0.001)
-        {
-            Debug.Log("Proslo 15 sekundi: " + timer);
-            _minimumSpawnTime+=5;
-            _maximumSpawnTime-=5;
-        }
-        */
+
         if (_timeUntilSpawn <= 0)
         {
             GameObject enemy = objectPool.GetObject();
@@ -64,6 +56,5 @@ public class EnemySpawner : MonoBehaviour
     {
         _maximumSpawnTime=Mathf.Clamp(_maximumSpawnTime, 1f, 60f);
         _timeUntilSpawn=Random.Range(_minimumSpawnTime, _maximumSpawnTime);
-        //_maximumSpawnTime=Mathf.Clamp(_maximumSpawnTime, 1f, 2f);
     }
 }
