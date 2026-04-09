@@ -1,21 +1,14 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 
 
 public class Bar : MonoBehaviour
 {
-    //[field:SerializeField]
-    //public int MaxValue {get;private set;}
-    //[field:SerializeField]
-    //public int Value {get;private set;}
-    //public void Change(int amount)
     [field:SerializeField]
     public float MaxValue {get; private set; }
     [field:SerializeField]
     public float Value {get; private set; }
-    private GameObject obj;
     [SerializeField]
     private RectTransform _topBar;
     
@@ -37,27 +30,6 @@ public class Bar : MonoBehaviour
         playerHealth = FindAnyObjectByType<PlayerController>().GetComponent<HealthSystem>();
         MaxValue = playerHealth.GetHealth();
         Value = MaxValue;
-    }
-
-
-    private void Update()
-    {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            //TargetWidth=_fullWidth * (80/100);
-            //_fullWidth=_fullWidth * (80/100);
-            Change(20);
-            Debug.Log("Heal!");
-            playerHealth.Heal(20);
-        }
-        if (Mouse.current.rightButton.wasPressedThisFrame)
-        {
-            //TargetWidth=_fullWidth * (120/100);
-            //_fullWidth=_fullWidth * (120/100);
-            Change(-20);
-            Debug.Log("Damage!");
-            playerHealth.Damage(20);
-        }
     }
 
     private IEnumerator AdjustBarWidth(int amount)
