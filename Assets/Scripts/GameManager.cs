@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         GameObject vfx = deathVFX.GetObject();
         vfx.transform.position = transform.position;
+        audioManager.StopSFX();
         audioManager.PlaySFX(audioManager.death);
         transform.GetComponentInParent<ObjectPool>().ReturnObject(transform.gameObject);
         ScoreManager.instance.AddPoint(10);
