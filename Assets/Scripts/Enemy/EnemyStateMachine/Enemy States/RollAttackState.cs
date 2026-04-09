@@ -16,6 +16,7 @@ public class RollAttackState : State
     public override void Enter()
     {
         base.Enter();
+        enemy.audioManager.PlaySFX(enemy.audioManager.roll_attack);
         enemy.isPathfinding = true;
         changeTimer = enemy.unstuckTimer;
         PathRequestManager.RequestPath(new PathRequest(enemy.transform.position, enemy.attackPostion.transform.position, enemy.OnRollPathFound)); 

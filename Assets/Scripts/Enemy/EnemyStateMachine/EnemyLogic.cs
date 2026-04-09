@@ -61,7 +61,7 @@ public class EnemyLogic : StateMachine
     IDamageable targetIDamageble;
     #endregion
 
-    AudioManager audioManager;
+    public AudioManager audioManager;
 
     void Awake()
     {
@@ -136,8 +136,13 @@ public class EnemyLogic : StateMachine
             {
                 if(collision.collider == targetCircleCollider2d)
                 {
+                    audioManager.PlaySFX(audioManager.roll_hit);
                     targetIDamageble.Damage(attackRollDamage);
                     playerBar.Change(-attackRollDamage);
+                }
+                else
+                {
+                    audioManager.PlaySFX(audioManager.roll_block);
                 }
                 isHit = true;
                 EnemyPushBackForce();

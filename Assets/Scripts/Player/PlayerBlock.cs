@@ -9,9 +9,12 @@ public class PlayerBlock : MonoBehaviour
 
     public CapsuleCollider2D coll;
 
+    public AudioManager audioManager;
+
     void Awake()
     {
         blocking_input.Enable();
+        audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     void Start()
@@ -21,6 +24,10 @@ public class PlayerBlock : MonoBehaviour
     }
     void Update()
     {
+        if (blocking_input.WasPressedThisFrame())
+        {
+            audioManager.LoopSFX();
+        }
         if (blocking_input.IsPressed())
         {
             anim.SetBool("IsBlocking",true);
@@ -28,6 +35,7 @@ public class PlayerBlock : MonoBehaviour
         }
         else
         {
+            audioManager.StopSFX();
             anim.SetBool("IsBlocking",false);
             coll.enabled=false;
         }
